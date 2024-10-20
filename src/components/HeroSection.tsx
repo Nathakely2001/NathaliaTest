@@ -37,8 +37,8 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-left-medium.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '70vw', // Réactif avec vw pour la largeur
-              height: '80vh', // Réactif avec vh pour la hauteur
+              width: '40vw', // Réactif avec vw pour la largeur
+              height: '30vh', // Réactif avec vh pour la hauteur
               top: `calc(0% + ${offset}px)`,
               left: '2%',
             }}
@@ -52,7 +52,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '30vw',
-              height: '80vh',
+              height: '60vh',
               top: `calc(10% + ${offset}px)`,
               left: '30%',
               transform: 'translateX(-95%)',
@@ -66,7 +66,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-right-medium.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '50vw',
+              width: '30vw',
               height: '30vh',
               top: `calc(30% + ${offset}px)`,
               left: '75%',
@@ -80,8 +80,8 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-right-large.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '90vw',
-              height: '100vh',
+              width: '30vw',
+              height: '60vh',
               top: `calc(-50% + ${offset}px)`,
               right: '30%',
               transform: 'translateX(95%)',
@@ -96,7 +96,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '30vw',
-              height: '40vh',
+              height: '30vh',
               top: `calc(-45% + ${offset}px)`,
               left: '90%',
             }}
@@ -122,12 +122,11 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           <div className='flex flex-col space-y-4 items-center text-3xl'>
             <div className='flex flex-row w-full'>
               <div className='flex justify-start'></div>
-              <div className='flex flex-col items-center w-full px-16 ml-0'>
-  <p><strong>Solutions</strong> de développement</p> 
-  <p><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
-</div>
-
-</div>
+              <div className='flex flex-col items-center w-full ml-8'>
+                <p><strong>Solutions</strong> de développement</p> 
+                <p><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
+              </div>
+            </div>
 
             <div className='flex space-x-4'>
               <button className='relative flex items-center justify-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-transparent border border-blue-500 rounded-md shrink-0 sm:w-auto hover:border-blue-300'>
