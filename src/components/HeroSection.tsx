@@ -64,8 +64,8 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             <Image 
               alt='dark_mode'
               src='/images/logos/f4d-black.gif'
-              height={600}
-              width={600}
+              height={450}
+              width={450}
             />
           ) : (
             <Image 
@@ -138,7 +138,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
           </button>
         </div>
-        <div
+            <div
   className='relative z-0 mt-5 flex flex-col justify-end' // Retiré h-80
   style={{
     height: '500px', // Modifiez cette valeur selon vos besoins
