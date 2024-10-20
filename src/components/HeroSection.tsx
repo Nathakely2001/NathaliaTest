@@ -29,7 +29,14 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   return (
     <>
       <div className='flex'>
-        <div className='relative z-0 mt-5 h-80 flex flex-col justify-end'>
+        <div
+          className='relative z-0 mt-5 h-80 flex flex-col justify-end'
+          style={{
+            backgroundImage: 'url(/images/cube-in-right-large.png)', // Remplacez ceci par l'image de fond désirée
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
             <Image 
               alt='dark_mode'
@@ -47,10 +54,9 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             />
           </div>
         </div>
+        
 
-        <div
-          className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5 bg-cover bg-center'
-        >
+        <div className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5 bg-cover bg-center'>
           {/* Afficher l'image en fonction du thème */}
           {isDarkTheme ? (
             <Image 
@@ -71,12 +77,10 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             <div className='flex flex-row w-full'>
               <div className='flex justify-start'></div>
               <div className='flex flex-col items-center w-full ml-8'>
-      
                 <p><strong>Solutions</strong> de développement</p> 
                 <p><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
               </div>
             </div>
-
 
             <div className='flex space-x-4'>
               <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto'>
@@ -118,11 +122,11 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               </button>
             </div>
           </div>
-          
+
           <p className='text-center'>
             Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
           </p>
-          
+
           <button 
             className={`flex items-center px-5 py-3 text-sm tracking-wide transition-colors duration-200 bg-blue-500 border border-blue-500 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
           >
@@ -132,8 +136,14 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
           </button>
         </div>
-
-        <div className='relative z-0 mt-5 h-80 flex flex-col justify-end'>
+        <div
+          className='relative z-0 mt-5 h-80 flex flex-col justify-end'
+          style={{
+            backgroundImage: 'url(/images/cube-in-right-large.png)', // Remplacez ceci par l'image de fond désirée
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
             <Image 
               alt='dark_mode'
@@ -145,11 +155,10 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
             <Image 
               alt='dark_mode'
-              src='/images/cube-in-right-large.png'
-              height={400}
-              width={400}
+              src='/images/cube-in-left-large.png'
+              height={250}
+              width={250}
             />
-         
           </div>
         </div>
       </div>
