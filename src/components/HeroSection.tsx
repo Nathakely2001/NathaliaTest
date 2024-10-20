@@ -37,36 +37,40 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
 
 
             {isDarkTheme ? (
-        <Image 
-        alt='Strapi logo'
-        src='/images/Strapi-logo-white.png'
-        height={100}
-        width={100}
-        />
-      ) : (
-        <Image 
-        alt='Next.js logo'
-         src='/images/Strapi-logo-black.png'
-        height={100}
-        width={100}
-        />
-      )}
+  <>
+    <Image 
+      alt='Strapi logo'
+      src='/images/Strapi-logo-white.png'
+      height={100}
+      width={100}
+    />
+    &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
+    <Image 
+      alt='Next.js logo'
+      src='/images/Next-JS-logo-white.png'
+      height={100}
+      width={100}
+    />
+  </>
+) : (
+  <>
+    <Image 
+      alt='Strapi logo'
+      src='/images/Strapi-logo-black.png'
+      height={100}
+      width={100}
+    />
+    &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
+    <Image 
+      alt='Next.js logo'
+      src='/images/Next-JS-logo-black.png'
+      height={100}
+      width={100}
+    />
+  </>
+)}
 
-{isDarkTheme ? (
-        <Image 
-        alt='Strapi logo'
-             src='/images/Next-JS-logo-white.png'
-        height={100}
-        width={100}
-        />
-      ) : (
-        <Image 
-        alt='Next.js logo'
-        src='/images/Next-JS-logo-black.png'
-        height={100}
-        width={100}
-        />
-      )}
+
 
 
 
