@@ -29,51 +29,115 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   return (
     <>
       <div className='flex'>
-        <div
-          className='relative z-0 mt-5 flex flex-col justify-end' // Retiré h-80
-          style={{
-            height: '800px', // Modifiez cette valeur selon vos besoins
-            backgroundImage: 'url(/images/cube-in-right-large.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-               <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-            <Image 
-              alt='dark_mode'
-              src='/images/cube-in-left-large.png'
-              height={250}
-              width={250}
-            />
-          </div>
-          <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-            <Image 
-              alt='dark_mode'
-              src='/images/cube-in-left-small.png'
-              height={200}
-              width={200}
-            />
-          </div>
-          <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-            <Image 
-              alt='dark_mode'
-              src='/images/cube-in-left-large.png'
-              height={250}
-              width={250}
-            />
-          </div>
-        </div>
-
-        <div 
-          className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5'
-          style={{
-            backgroundImage: 'url(/images/cube-in-left-small.png)', // Image de fond
-            backgroundSize: 'cover', // Ajuste l'image pour couvrir toute la div
-            backgroundPosition: 'center', // Centre l'image
-            backgroundRepeat: 'no-repeat', // Évite de répéter l'image
-          }}
-        >
-          {/* Afficher l'image en fonction du thème */}
+        <div className='relative z-10 mt-20 flex flex-col items-center justify-center py-5' style={{ height: '50vh' }}>
+          {/* Image à gauche */}
+          <div
+            className='absolute left-0 top-10'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-medium.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '50%', // Ajustez cette valeur selon vos besoins
+              height: '50%', // Ajustez cette valeur selon vos besoins
+              left: '2%', // Centre cette image
+            }}
+          />
+          
+          {/* Image au centre */}
+          <div
+            className='absolute top-10'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-large.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '50%', // Ajustez cette valeur selon vos besoins
+              height: '200%', // Ajustez cette valeur selon vos besoins
+              left: '30%', // Centre cette image
+              transform: 'translateX(-95%)', // Centre l'image
+            }}
+          />
+   
+          {/* Image à droite */}
+         
+         
+         
+         
+         
+         
+          <div
+            className='absolute  top-60'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-medium.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '50%', // Ajustez cette valeur selon vos besoins
+              height: '50%', // Ajustez cette valeur selon vos besoins
+              left: '75%', // Centre cette image
+            }}
+          />
+          
+          {/* Image au centre */}
+          <div
+            className='absolute top-0'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-large.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '60%', // Ajustez cette valeur selon vos besoins
+              height: '200%', // Ajustez cette valeur selon vos besoins
+              right: '30%', 
+            // Centre cette image
+              transform: 'translateX(95%)', // Centre l'image
+            }}
+          />
+   <div
+            className='absolute top-0'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-large.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '50%', // Ajustez cette valeur selon vos besoins
+              height: '100%', // Ajustez cette valeur selon vos besoins
+              left: '60%', // Centre cette image
+              transform: 'translateX(-95%)', // Centre l'image
+            }}
+          />
+          {/* Image à droite */}
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+          <div
+            className='absolute right-0 top-0'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-small.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '50%', // Ajustez cette valeur selon vos besoins
+              height: '80%', // Ajustez cette valeur selon vos besoins
+              left: '90%',
+              
+            }}
+          />
+          
+          {/* Contenu du Hero Section */}
           {isDarkTheme ? (
             <Image 
               alt='dark_mode'
@@ -99,8 +163,12 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
 
             <div className='flex space-x-4'>
-              <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto'>
-                <div className='flex items-center'>
+              <button className='relative flex items-center justify-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-transparent border border-blue-500 rounded-md shrink-0 sm:w-auto'>
+                {/* Bordure tournante */}
+                <span className='absolute inset-0 rounded-md border-2 border-blue-500 animate-spin'></span>
+
+                {/* Contenu du bouton */}
+                <div className='relative z-10 flex items-center'>
                   {isDarkTheme ? (
                     <>
                       <Image 
@@ -152,41 +220,6 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
           </button>
         </div>
-
-        <div
-          className='relative z-0 mt-5 flex flex-col justify-end' // Retiré h-80
-          style={{
-            height: '800px', // Modifiez cette valeur selon vos besoins
-            backgroundImage: 'url(/images/cube-in-right-large.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-                <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-            <Image 
-              alt='dark_mode'
-              src='/images/cube-in-left-large.png'
-              height={250}
-              width={250}
-            /></div>
-          <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-            <Image 
-              alt='dark_mode'
-              src='/images/cube-in-left-small.png'
-              height={200}
-              width={200}
-            />
-          </div>
-          <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-            <Image 
-              alt='dark_mode'
-              src='/images/cube-in-left-large.png'
-              height={250}
-              width={250}
-            />
-          </div>
-        </div>
-
       </div>
     </>
   );
