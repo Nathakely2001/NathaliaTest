@@ -35,12 +35,12 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           <div
             className='absolute left-0'
             style={{
-              backgroundImage: 'url(/images/cube-in-right-medium.png)',
+              backgroundImage: 'url(/images/cube-in-left-medium.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '50%', // Ajustez cette valeur selon vos besoins
+              width: '70%', // Ajustez cette valeur selon vos besoins
               height: '50%', // Ajustez cette valeur selon vos besoins
-              top: `calc(10% + ${offset}px)`, // Montée et descente
+              top: `calc(0% + ${offset}px)`, // Montée et descente
               left: '2%', // Centre cette image
             }}
           />
@@ -145,9 +145,9 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
 
             <div className='flex space-x-4'>
-            <button className='relative flex items-center justify-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-transparent border border-blue-500 rounded-md shrink-0 sm:w-auto'>
+            <button className='relative flex items-center justify-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-transparent border border-blue-500 rounded-md shrink-0 sm:w-auto hover:border-blue-300'>
   {/* Bordure sans animation */}
-  <span className='absolute inset-0 rounded-md border-2 border-blue-500'></span>
+  <span className='absolute inset-0 rounded-md border-2 border-blue-500 shadow-lg transition duration-200 ease-in-out hover:shadow-xl'></span>
 
   {/* Contenu du bouton */}
   <div className='relative z-10 flex items-center'>
@@ -186,6 +186,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     )}
   </div>
 </button>
+
 
             </div>
           </div>
