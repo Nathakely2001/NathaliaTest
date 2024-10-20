@@ -34,19 +34,42 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         <div className='flex space-x-4'>
           <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto  ' >
             <div className='flex items-center'>
-              <Image 
-                alt='Strapi logo'
-                src='/images/Strapi-logo-white.png'
-                height={100}
-                width={100}
-              />
-              <p className='text-2xl ml-4 mr-4'>&</p>
-              <Image 
-                alt='Next.js logo'
-                src='/images/Next-JS-logo-white.png'
-                height={100}
-                width={100}
-              />
+
+
+            {isDarkTheme ? (
+        <Image 
+        alt='Strapi logo'
+        src='/images/Strapi-logo-white.png'
+        height={100}
+        width={100}
+        />
+      ) : (
+        <Image 
+        alt='Next.js logo'
+         src='/images/Strapi-logo-black.png'
+        height={100}
+        width={100}
+        />
+      )}
+
+{isDarkTheme ? (
+        <Image 
+        alt='Strapi logo'
+             src='/images/Next-JS-logo-white.png'
+        height={100}
+        width={100}
+        />
+      ) : (
+        <Image 
+        alt='Next.js logo'
+        src='/images/Next-JS-logo-black.png'
+        height={100}
+        width={100}
+        />
+      )}
+
+
+
             </div>
           </button>
         </div>
