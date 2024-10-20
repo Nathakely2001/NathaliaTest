@@ -41,9 +41,21 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '40vw',
-              height: '30vh',
+              height: '60vh',
               top: `calc(0% + ${offset}px)`,
               left: '2%',
+            }}
+          />
+                <div
+            className='absolute left-0'
+            style={{
+              backgroundImage: 'url(/images/cube-in-left-medium.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '20vw',
+              height: '40vh',
+              top: `calc(48% + ${offset}px)`,
+              left: '6%',
             }}
           />
           {/* Image à droite */}
