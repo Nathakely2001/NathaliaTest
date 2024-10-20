@@ -60,3 +60,4 @@ export default {
   },
   plugins: [headlessuiPlugin],
 } satisfies Config;
+
