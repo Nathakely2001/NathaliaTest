@@ -26,8 +26,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5 bg-cover bg-center'
         >
           {/* Fond semi-transparent */}
-          <div className={`absolute inset-0 ${isDarkTheme ? 'bg-black bg-opacity-50' : 'bg-white bg-opacity-50'} z-0`} />
-
+          
           {/* Afficher l'image en fonction du thème */}
           {isDarkTheme ? (
             <Image 
