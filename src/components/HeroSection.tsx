@@ -8,15 +8,16 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   return (
     <>
     <div className='flex'>
-    <div className='relative z-0 mt-200'>
-    <Image 
-        alt='dark_mode'
-        src='/images/cube-in-left-large.png'
-        height={250}
-        width={250}
-        
-      />
-    </div>
+    <div className='relative z-0 mt-5 mt-5 h-80 flex flex-col justify-end'>
+  <Image 
+    alt='dark_mode'
+    src='/images/cube-in-left-large.png'
+    height={250}
+    width={250}
+  />
+</div>
+
+
     <div
     className=' relative z-10 flex flex-col items-center justify-center space-y-6 py-20 bg-cover bg-center'
  
@@ -120,15 +121,14 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
 </button>
 
     </div>
-    <div className='relative z-0 mt-5'>
-    <Image 
-        alt='dark_mode'
-        src='/images/cube-in-right-medium.png'
-        height={250}
-        width={250}
-        
-      />
-    </div>
+    <div className='relative z-0 mt-5 mt-5 h-80 flex flex-col justify-end'>
+  <Image 
+    alt='dark_mode'
+    src='/images/cube-in-left-large.png'
+    height={250}
+    width={250}
+  />
+</div>
     </div>
     </>
   );
