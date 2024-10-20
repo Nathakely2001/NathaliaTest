@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import IconArrow from './icons/IconArrow';
 
 const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
@@ -30,113 +30,94 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     <>
       <div className='flex'>
         <div className='relative z-10 mt-20 flex flex-col items-center justify-center py-5' style={{ height: '50vh' }}>
+          
           {/* Image à gauche */}
           <div
-            className='absolute left-0 top-10'
+            className='absolute left-0'
             style={{
               backgroundImage: 'url(/images/cube-in-right-medium.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '50%', // Ajustez cette valeur selon vos besoins
               height: '50%', // Ajustez cette valeur selon vos besoins
+              top: `calc(10% + ${offset}px)`, // Montée et descente
               left: '2%', // Centre cette image
             }}
           />
           
           {/* Image au centre */}
           <div
-            className='absolute top-10'
+            className='absolute'
             style={{
               backgroundImage: 'url(/images/cube-in-right-large.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '50%', // Ajustez cette valeur selon vos besoins
               height: '200%', // Ajustez cette valeur selon vos besoins
+              top: `calc(10% + ${offset}px)`, // Montée et descente
               left: '30%', // Centre cette image
               transform: 'translateX(-95%)', // Centre l'image
             }}
           />
    
           {/* Image à droite */}
-         
-         
-         
-         
-         
-         
           <div
-            className='absolute  top-60'
+            className='absolute'
             style={{
               backgroundImage: 'url(/images/cube-in-right-medium.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '50%', // Ajustez cette valeur selon vos besoins
               height: '50%', // Ajustez cette valeur selon vos besoins
+              top: `calc(30% + ${offset}px)`, // Montée et descente
               left: '75%', // Centre cette image
             }}
           />
           
           {/* Image au centre */}
           <div
-            className='absolute top-0'
-            style={{
-              backgroundImage: 'url(/images/cube-in-right-large.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '60%', // Ajustez cette valeur selon vos besoins
-              height: '200%', // Ajustez cette valeur selon vos besoins
-              right: '30%', 
-            // Centre cette image
-              transform: 'translateX(95%)', // Centre l'image
-            }}
-          />
-   <div
-            className='absolute top-0'
+  className='absolute'
+  style={{
+    backgroundImage: 'url(/images/cube-in-right-large.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '60%', // Ajustez cette valeur selon vos besoins
+    height: '200%', // Ajustez cette valeur selon vos besoins
+    top: `calc(-50% + ${offset}px)`, // Ajustez ce chiffre pour modifier le point de départ de la montée
+    right: '30%', 
+    transform: 'translateX(95%)', // Centre l'image
+  }}
+/>
+
+   
+          <div
+            className='absolute'
             style={{
               backgroundImage: 'url(/images/cube-in-right-large.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '50%', // Ajustez cette valeur selon vos besoins
               height: '100%', // Ajustez cette valeur selon vos besoins
+              top: `calc(-10% + ${offset}px)`, // Montée et descente
               left: '60%', // Centre cette image
               transform: 'translateX(-95%)', // Centre l'image
             }}
           />
+          
           {/* Image à droite */}
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
           <div
-            className='absolute right-0 top-0'
+            className='absolute right-0'
             style={{
               backgroundImage: 'url(/images/cube-in-right-small.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '50%', // Ajustez cette valeur selon vos besoins
               height: '80%', // Ajustez cette valeur selon vos besoins
+              top: `calc(-45% + ${offset}px)`, // Montée et descente
               left: '90%',
-              
             }}
           />
-          
+
           {/* Contenu du Hero Section */}
           {isDarkTheme ? (
             <Image 
@@ -153,6 +134,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               width={600}
             />
           )}
+
           <div className='flex flex-col space-y-4 items-center text-3xl'>
             <div className='flex flex-row w-full'>
               <div className='flex justify-start'></div>
@@ -207,12 +189,12 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
           </div>
 
-          <p className='text-center'>
+          <p className='text-center m-5'>
             Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
           </p>
 
           <button 
-            className={`flex items-center px-5 py-3 text-sm tracking-wide transition-colors duration-200 bg-blue-500 border border-blue-500 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
+            className={`flex items-center px-5 py-3 m-2 text-sm tracking-wide transition-colors duration-200 bg-blue-500 border border-blue-500 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
           >
             Demander une démo
             <div className='bg-white rounded-full ml-2'>
