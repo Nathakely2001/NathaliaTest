@@ -27,10 +27,11 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
       )}
 
       <div className='flex flex-col space-y-4 items-center text-3xl'>
-        <div className='flex flex-col items-center'>
-          <p>Solutions de développement</p> 
-          <p>rapides et flexibles avec</p>
-        </div>
+      <div className='flex flex-col items-center'>
+  <p><strong>Solutions</strong> de développement</p> 
+  <p><strong>rapides </strong>et <strong> flexibles</strong> avec</p>
+</div>
+
         <div className='flex space-x-4'>
           <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto  ' >
             <div className='flex items-center'>
