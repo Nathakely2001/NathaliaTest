@@ -2,7 +2,7 @@
 'use client';
 
 import {ReactNode, useState} from 'react';
-import Header from '@/components/Header'; // Adjust the path as needed
+
 
 export default function ClientLayout({
   children,

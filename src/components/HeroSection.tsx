@@ -29,36 +29,42 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   return (
     <>
       <div className='flex'>
-      <div
-  className='relative z-0 mt-5 flex flex-col justify-end' // Retiré h-80
-  style={{
-    height: '400px', // Modifiez cette valeur selon vos besoins
-    backgroundImage: 'url(/images/cube-in-right-large.png)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  }}
->
-  <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-    <Image 
-      alt='dark_mode'
-      src='/images/cube-in-left-small.png'
-      height={200}
-      width={200}
-    />
-  </div>
-  <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-    <Image 
-      alt='dark_mode'
-      src='/images/cube-in-left-large.png'
-      height={250}
-      width={250}
-    />
-  </div>
-</div>
+        <div
+          className='relative z-0 mt-5 flex flex-col justify-end' // Retiré h-80
+          style={{
+            height: '400px', // Modifiez cette valeur selon vos besoins
+            backgroundImage: 'url(/images/cube-in-right-large.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
+            <Image 
+              alt='dark_mode'
+              src='/images/cube-in-left-small.png'
+              height={200}
+              width={200}
+            />
+          </div>
+          <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
+            <Image 
+              alt='dark_mode'
+              src='/images/cube-in-left-large.png'
+              height={250}
+              width={250}
+            />
+          </div>
+        </div>
 
-        
-
-        <div className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5 bg-cover bg-center'>
+        <div 
+          className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5'
+          style={{
+            backgroundImage: 'url(/images/cube-in-left-small.png)', // Image de fond
+            backgroundSize: 'cover', // Ajuste l'image pour couvrir toute la div
+            backgroundPosition: 'center', // Centre l'image
+            backgroundRepeat: 'no-repeat', // Évite de répéter l'image
+          }}
+        >
           {/* Afficher l'image en fonction du thème */}
           {isDarkTheme ? (
             <Image 
@@ -138,32 +144,33 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
           </button>
         </div>
-            <div
-  className='relative z-0 mt-5 flex flex-col justify-end' // Retiré h-80
-  style={{
-    height: '400px', // Modifiez cette valeur selon vos besoins
-    backgroundImage: 'url(/images/cube-in-right-large.png)',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  }}
->
-  <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-    <Image 
-      alt='dark_mode'
-      src='/images/cube-in-left-small.png'
-      height={200}
-      width={200}
-    />
-  </div>
-  <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
-    <Image 
-      alt='dark_mode'
-      src='/images/cube-in-left-large.png'
-      height={250}
-      width={250}
-    />
-  </div>
-</div>
+
+        <div
+          className='relative z-0 mt-5 flex flex-col justify-end' // Retiré h-80
+          style={{
+            height: '400px', // Modifiez cette valeur selon vos besoins
+            backgroundImage: 'url(/images/cube-in-right-large.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
+            <Image 
+              alt='dark_mode'
+              src='/images/cube-in-left-small.png'
+              height={200}
+              width={200}
+            />
+          </div>
+          <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
+            <Image 
+              alt='dark_mode'
+              src='/images/cube-in-left-large.png'
+              height={250}
+              width={250}
+            />
+          </div>
+        </div>
 
       </div>
     </>
