@@ -34,6 +34,31 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5'
       
         >
+                 <div
+            className='absolute left-0'
+            style={{
+              backgroundImage: 'url(/images/cube-in-left-medium.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '40vw',
+              height: '30vh',
+              top: `calc(0% + ${offset}px)`,
+              left: '2%',
+            }}
+          />
+          {/* Image à droite */}
+          <div
+            className='absolute'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-medium.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '30vw',
+              height: '30vh',
+              top: `calc(30% + ${offset}px)`,
+              left: '75%',
+            }}
+          />
           {/* Afficher l'image en fonction du thème */}
           {isDarkTheme ? (
             <Image 
