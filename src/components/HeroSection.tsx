@@ -4,26 +4,25 @@ import IconArrow from './icons/IconArrow';
 
 const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   const [offset, setOffset] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 pour descendre, -1 pour monter
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setOffset((prev) => {
         const newOffset = prev + direction;
-        // Change de direction si on atteint une certaine limite
         if (newOffset >= 20) {
           setDirection(-1);
-          return 20; // Limite supérieure
+          return 20;
         }
         if (newOffset <= 0) {
           setDirection(1);
-          return 0; // Limite inférieure
+          return 0;
         }
         return newOffset;
       });
-    }, 100); // Ajustez la durée pour contrôler la vitesse
+    }, 100);
 
-    return () => clearInterval(interval); // Nettoie l'intervalle à la désactivation du composant
+    return () => clearInterval(interval);
   }, [direction]);
 
   return (
@@ -38,10 +37,10 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-left-medium.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '70%', // Ajustez cette valeur selon vos besoins
-              height: '50%', // Ajustez cette valeur selon vos besoins
-              top: `calc(0% + ${offset}px)`, // Montée et descente
-              left: '2%', // Centre cette image
+              width: '70vw', // Réactif avec vw pour la largeur
+              height: '80vh', // Réactif avec vh pour la hauteur
+              top: `calc(0% + ${offset}px)`,
+              left: '2%',
             }}
           />
           
@@ -52,11 +51,11 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-right-large.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '50%', // Ajustez cette valeur selon vos besoins
-              height: '200%', // Ajustez cette valeur selon vos besoins
-              top: `calc(10% + ${offset}px)`, // Montée et descente
-              left: '30%', // Centre cette image
-              transform: 'translateX(-95%)', // Centre l'image
+              width: '30vw',
+              height: '80vh',
+              top: `calc(10% + ${offset}px)`,
+              left: '30%',
+              transform: 'translateX(-95%)',
             }}
           />
    
@@ -67,43 +66,28 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-right-medium.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '50%', // Ajustez cette valeur selon vos besoins
-              height: '50%', // Ajustez cette valeur selon vos besoins
-              top: `calc(30% + ${offset}px)`, // Montée et descente
-              left: '75%', // Centre cette image
+              width: '50vw',
+              height: '30vh',
+              top: `calc(30% + ${offset}px)`,
+              left: '75%',
             }}
           />
-          
-          {/* Image au centre */}
-          <div
-  className='absolute'
-  style={{
-    backgroundImage: 'url(/images/cube-in-right-large.png)',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    width: '60%', // Ajustez cette valeur selon vos besoins
-    height: '200%', // Ajustez cette valeur selon vos besoins
-    top: `calc(-50% + ${offset}px)`, // Ajustez ce chiffre pour modifier le point de départ de la montée
-    right: '30%', 
-    transform: 'translateX(95%)', // Centre l'image
-  }}
-/>
 
-   
+          {/* Image au centre */}
           <div
             className='absolute'
             style={{
               backgroundImage: 'url(/images/cube-in-right-large.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '50%', // Ajustez cette valeur selon vos besoins
-              height: '100%', // Ajustez cette valeur selon vos besoins
-              top: `calc(-10% + ${offset}px)`, // Montée et descente
-              left: '60%', // Centre cette image
-              transform: 'translateX(-95%)', // Centre l'image
+              width: '90vw',
+              height: '100vh',
+              top: `calc(-50% + ${offset}px)`,
+              right: '30%',
+              transform: 'translateX(95%)',
             }}
           />
-          
+
           {/* Image à droite */}
           <div
             className='absolute right-0'
@@ -111,9 +95,9 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-right-small.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '50%', // Ajustez cette valeur selon vos besoins
-              height: '60%', // Ajustez cette valeur selon vos besoins
-              top: `calc(-45% + ${offset}px)`, // Montée et descente
+              width: '30vw',
+              height: '40vh',
+              top: `calc(-45% + ${offset}px)`,
               left: '90%',
             }}
           />
@@ -138,56 +122,53 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           <div className='flex flex-col space-y-4 items-center text-3xl'>
             <div className='flex flex-row w-full'>
               <div className='flex justify-start'></div>
-              <div className='flex flex-col items-center w-full ml-8'>
-                <p><strong>Solutions</strong> de développement</p> 
-                <p><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
-              </div>
-            </div>
+              <div className='flex flex-col items-center w-full px-16 ml-0'>
+  <p><strong>Solutions</strong> de développement</p> 
+  <p><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
+</div>
+
+</div>
 
             <div className='flex space-x-4'>
-            <button className='relative flex items-center justify-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-transparent border border-blue-500 rounded-md shrink-0 sm:w-auto hover:border-blue-300'>
-  {/* Bordure sans animation */}
-  <span className='absolute inset-0 rounded-md border-2 border-blue-500 shadow-lg transition duration-200 ease-in-out hover:shadow-xl'></span>
+              <button className='relative flex items-center justify-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-transparent border border-blue-500 rounded-md shrink-0 sm:w-auto hover:border-blue-300'>
+                <span className='absolute inset-0 rounded-md border-2 border-blue-500 shadow-lg transition duration-200 ease-in-out hover:shadow-xl'></span>
 
-  {/* Contenu du bouton */}
-  <div className='relative z-10 flex items-center'>
-    {isDarkTheme ? (
-      <>
-        <Image 
-          alt='Strapi logo'
-          src='/images/Strapi-logo-white.png'
-          height={100}
-          width={100}
-        />
-        &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
-        <Image 
-          alt='Next.js logo'
-          src='/images/Next-JS-logo-white.png'
-          height={100}
-          width={100}
-        />
-      </>
-    ) : (
-      <>
-        <Image 
-          alt='Strapi logo'
-          src='/images/Strapi-logo-black.png'
-          height={100}
-          width={100}
-        />
-        &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
-        <Image 
-          alt='Next.js logo'
-          src='/images/Next-JS-logo-black.png'
-          height={100}
-          width={100}
-        />
-      </>
-    )}
-  </div>
-</button>
-
-
+                <div className='relative z-10 flex items-center'>
+                  {isDarkTheme ? (
+                    <>
+                      <Image 
+                        alt='Strapi logo'
+                        src='/images/Strapi-logo-white.png'
+                        height={100}
+                        width={100}
+                      />
+                      &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
+                      <Image 
+                        alt='Next.js logo'
+                        src='/images/Next-JS-logo-white.png'
+                        height={100}
+                        width={100}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <Image 
+                        alt='Strapi logo'
+                        src='/images/Strapi-logo-black.png'
+                        height={100}
+                        width={100}
+                      />
+                      &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
+                      <Image 
+                        alt='Next.js logo'
+                        src='/images/Next-JS-logo-black.png'
+                        height={100}
+                        width={100}
+                      />
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
           </div>
 
