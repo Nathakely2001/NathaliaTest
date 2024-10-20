@@ -38,6 +38,14 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             backgroundPosition: 'center',
           }}
         >
+               <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
+            <Image 
+              alt='dark_mode'
+              src='/images/cube-in-left-large.png'
+              height={250}
+              width={250}
+            />
+          </div>
           <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
             <Image 
               alt='dark_mode'
@@ -154,6 +162,13 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             backgroundPosition: 'center',
           }}
         >
+                <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
+            <Image 
+              alt='dark_mode'
+              src='/images/cube-in-left-large.png'
+              height={250}
+              width={250}
+            /></div>
           <div style={{ transform: `translateY(${offset}px)`, transition: 'transform 0.1s' }}>
             <Image 
               alt='dark_mode'
