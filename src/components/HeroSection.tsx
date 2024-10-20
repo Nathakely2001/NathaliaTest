@@ -32,7 +32,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         <div
           className='relative z-0 mt-5 flex flex-col justify-end' // Retiré h-80
           style={{
-            height: '400px', // Modifiez cette valeur selon vos besoins
+            height: '800px', // Modifiez cette valeur selon vos besoins
             backgroundImage: 'url(/images/cube-in-right-large.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -148,7 +148,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         <div
           className='relative z-0 mt-5 flex flex-col justify-end' // Retiré h-80
           style={{
-            height: '400px', // Modifiez cette valeur selon vos besoins
+            height: '800px', // Modifiez cette valeur selon vos besoins
             backgroundImage: 'url(/images/cube-in-right-large.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
