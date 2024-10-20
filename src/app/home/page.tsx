@@ -7,6 +7,7 @@ const HomeProvider = () => {
   return (
     <ThemeProvider>
      <Home/>
+     
     </ThemeProvider>
   );
 };
