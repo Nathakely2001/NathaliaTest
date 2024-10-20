@@ -21,7 +21,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         }
         return newOffset;
       });
-    }, 50); // Ajustez la durée pour contrôler la vitesse
+    }, 100); // Ajustez la durée pour contrôler la vitesse
 
     return () => clearInterval(interval); // Nettoie l'intervalle à la désactivation du composant
   }, [direction]);
@@ -112,7 +112,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '50%', // Ajustez cette valeur selon vos besoins
-              height: '80%', // Ajustez cette valeur selon vos besoins
+              height: '60%', // Ajustez cette valeur selon vos besoins
               top: `calc(-45% + ${offset}px)`, // Montée et descente
               left: '90%',
             }}
@@ -145,47 +145,48 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
 
             <div className='flex space-x-4'>
-              <button className='relative flex items-center justify-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-transparent border border-blue-500 rounded-md shrink-0 sm:w-auto'>
-                {/* Bordure tournante */}
-                <span className='absolute inset-0 rounded-md border-2 border-blue-500 animate-spin'></span>
+            <button className='relative flex items-center justify-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-transparent border border-blue-500 rounded-md shrink-0 sm:w-auto'>
+  {/* Bordure sans animation */}
+  <span className='absolute inset-0 rounded-md border-2 border-blue-500'></span>
 
-                {/* Contenu du bouton */}
-                <div className='relative z-10 flex items-center'>
-                  {isDarkTheme ? (
-                    <>
-                      <Image 
-                        alt='Strapi logo'
-                        src='/images/Strapi-logo-white.png'
-                        height={100}
-                        width={100}
-                      />
-                      &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
-                      <Image 
-                        alt='Next.js logo'
-                        src='/images/Next-JS-logo-white.png'
-                        height={100}
-                        width={100}
-                      />
-                    </>
-                  ) : (
-                    <>
-                      <Image 
-                        alt='Strapi logo'
-                        src='/images/Strapi-logo-black.png'
-                        height={100}
-                        width={100}
-                      />
-                      &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
-                      <Image 
-                        alt='Next.js logo'
-                        src='/images/Next-JS-logo-black.png'
-                        height={100}
-                        width={100}
-                      />
-                    </>
-                  )}
-                </div>
-              </button>
+  {/* Contenu du bouton */}
+  <div className='relative z-10 flex items-center'>
+    {isDarkTheme ? (
+      <>
+        <Image 
+          alt='Strapi logo'
+          src='/images/Strapi-logo-white.png'
+          height={100}
+          width={100}
+        />
+        &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
+        <Image 
+          alt='Next.js logo'
+          src='/images/Next-JS-logo-white.png'
+          height={100}
+          width={100}
+        />
+      </>
+    ) : (
+      <>
+        <Image 
+          alt='Strapi logo'
+          src='/images/Strapi-logo-black.png'
+          height={100}
+          width={100}
+        />
+        &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
+        <Image 
+          alt='Next.js logo'
+          src='/images/Next-JS-logo-black.png'
+          height={100}
+          width={100}
+        />
+      </>
+    )}
+  </div>
+</button>
+
             </div>
           </div>
 
