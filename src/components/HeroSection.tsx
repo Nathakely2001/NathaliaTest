@@ -125,6 +125,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     height: '35vh',
     top: `calc(36% + ${offset}px)`,
     left: '65%',
+    
 
   }}
 />
@@ -133,15 +134,15 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
                  <div
             className='absolute'
             style={{
-              backgroundImage: 'url(/images/cube-in-right-small.png)',
+              backgroundImage: 'url(/images/cube-in-left-large.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '15vw',
-              height: '15vh',
+              width: '10vw',
+              height: '10vh',
               top: `calc(50% + ${offset}px)`,
-              left: '72%',
-              animation: 'rotate 5s linear infinite',
-            
+              animation: 'moveDiagonally1 5s ease-in-out infinite',
+              left: '70%',
+    
             }}
             
             
