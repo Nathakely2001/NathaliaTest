@@ -29,9 +29,11 @@ const Navbar: FC = () => {
           FRENCH4 <span className="text-blue-500">DEV.</span>
         </div>
 
-        <button className="md:hidden text-white" onClick={toggleMenu}>
-          {isMenuOpen ? <IconCloseWhite /> : <IconOpenWhite />}
-        </button>
+        <button className="md:hidden text-white relative z-[20]" onClick={toggleMenu}> {/* Ajout de z-index */}
+  {isMenuOpen ? <IconCloseWhite /> : <IconOpenWhite />}
+</button>
+
+       
       </div>
 
       <ul

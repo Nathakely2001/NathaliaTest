@@ -28,126 +28,122 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   return (
     <>
       <div 
-        className='flex w-full h-full'
+        className='flex w-full h-full' // Full width and height
         style={{
-          width: '100vw',  
-          height: '150vh',
-          position: 'relative',
+          width: '100vw',  // 100% of viewport width
+          height: '120vh', // Adjusted height if necessary
+          position: 'relative', // Positioning for absolute elements
         }}
       >
+        
         <div className='relative py-5 z-10 flex flex-col items-center justify-center mt-0 w-full h-full'>
-          <div
-            className="absolute left-10"
-            style={{
-              backgroundImage: 'url(/images/cube-in-left-large.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '40vw',
-              height: '40vh',
-              top: `calc(0% + ${offset}px)`,
-              left: '10%',
-              animation: 'rotateLeft 5s linear infinite alternate, pause 5s linear infinite alternate 5s',
-              backgroundColor: 'transparent',
-              opacity: 1,
-            }}
-          />
-          <div
-            className="absolute left-10"
-            style={{
-              backgroundImage: 'url(/images/cube-in-right-medium.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '30vw',
-              height: '30vh',
-              top: `calc(10% + ${offset}px)`,
-              left: '68%',
-              animation: 'rotateRight 5s linear infinite alternate 5s, pause 5s linear infinite alternate 10s',
-              backgroundColor: 'transparent',
-              opacity: 1,
-            }}
-          />
-          <div
-            className='absolute hide-on-mobile'
-            style={{
-              backgroundImage: 'url(/images/cube-in-right-medium.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '15vw',
-              height: '15vh',
-              top: `calc(10% + ${offset}px)`,
-              left: '64%',
-              animation: 'rotateRight 5s linear infinite alternate 5s, pause 5s linear infinite alternate 10s',
-              backgroundColor: 'transparent',
-              opacity: 1,
-            }}
-          />
-          <style jsx>{`
-            @keyframes rotateLeft {
-              0% {
-                transform: rotate(0deg) scale(1);
-              }
-              50% {
-                transform: rotate(90deg) scale(1.1);
-              }
-              100% {
-                transform: rotate(180deg) scale(1);
-              }
-            }
+        <div
+  className="absolute left-10"
+  style={{
+    backgroundImage: 'url(/images/cube-in-left-large.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '40vw',
+    height: '40vh',
+    top: `calc(0% + ${offset}px)`, // Déplacement vers le haut
+    left: '10%',
+    animation: 'rotateLeft 5s linear infinite alternate, pause 5s linear infinite alternate 5s', // Élément gauche tourne, puis pause
+    backgroundColor: 'transparent', // Couleur de fond transparente
+    opacity: 1, // Opacité normale
+  }}
+/>
+<div
+  className="absolute left-10"
+  style={{
+    backgroundImage: 'url(/images/cube-in-right-medium.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '30vw',
+    height: '30vh',
+    top: `calc(10% + ${offset}px)`, // Déplacement vers le bas
+    left: '68%',
+    animation: 'rotateRight 5s linear infinite alternate 5s, pause 5s linear infinite alternate 10s', // Éléments à droite tournent après que l'élément gauche ait fait sa pause
+    backgroundColor: 'transparent', // Couleur de fond transparente
+    opacity: 1, // Opacité normale
+  }}
+/>
+<div
+  className='absolute hide-on-mobile'
+  style={{
+    backgroundImage: 'url(/images/cube-in-right-medium.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '15vw',
+    height: '15vh',
+    top: `calc(10% + ${offset}px)`, // Déplacement vers le bas
+    left: '64%',
+    animation: 'rotateRight 5s linear infinite alternate 5s, pause 5s linear infinite alternate 10s', // Éléments à droite tournent après que l'élément gauche ait fait sa pause
+    backgroundColor: 'transparent', // Couleur de fond transparente
+    opacity: 1, // Opacité normale
+  }}
+/>
+<style jsx>{`
+  @keyframes rotateLeft {
+    0% {
+      transform: rotate(0deg) scale(1); // Début normal
+    }
+    50% {
+      transform: rotate(90deg) scale(1.1); // Rotation à 90° et échelle
+    }
+    100% {
+      transform: rotate(180deg) scale(1); // Fin à 180° et retour à l'échelle normale
+    }
+  }
 
-            @keyframes pause {
-              0% {
-                transform: rotate(180deg) scale(1);
-                opacity: 1;
-              }
-              100% {
-                opacity: 0.8;
-              }
-            }
+  @keyframes pause {
+    0% {
+      transform: rotate(180deg) scale(1); // Rester à la position finale
+      opacity: 1; // Opacité pleine
+    }
+    100% {
+      opacity: 0.8; // Légère transparence
+    }
+  }
 
-            @keyframes rotateRight {
-              0% {
-                transform: rotate(0deg) scale(1);
-              }
-              50% {
-                transform: rotate(90deg) scale(1.1);
-              }
-              100% {
-                transform: rotate(180deg) scale(1);
-              }
-            }
+  @keyframes rotateRight {
+    0% {
+      transform: rotate(0deg) scale(1); // Début normal
+    }
+    50% {
+      transform: rotate(90deg) scale(1.1); // Rotation à 90° et échelle
+    }
+    100% {
+      transform: rotate(180deg) scale(1); // Fin à 180° et retour à l'échelle normale
+    }
+  }
 
-            @media (max-width: 768px) {
-              .hide-on-mobile {
-                display: none;
-              }
+  .margin-top-negative {
+    margin-top: -100px; /* Ajustez la valeur selon vos besoins */
+  }
 
-              .rotate-animation {
-                animation: rotateLeft 3s linear infinite alternate, pause 3s linear infinite alternate 3s;
-              }
-            }
+  @media (max-width: 768px) {
+    .hide-on-mobile {
+      display: none;
+    }
+  }
+`}</style>
 
-            @media (min-width: 769px) {
-              .rotate-animation {
-                animation: rotateLeft 5s linear infinite alternate, pause 5s linear infinite alternate 5s;
-              }
-            }
-          `}</style>
 
           <div
             className='absolute hide-on-mobile'
             style={{
-              backgroundImage: 'url(/images/desktop-background-why-strapi.png)',
+              backgroundImage: 'url(/images/cube-in-right-large.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '130vw',
-              height: '50vh',
-              top: `calc(-30% + ${offset}px)`,
-              right: '30%',
+              height: '130vh',
+              top: `calc(-30% + ${offset}px)`, // Moved up further
+              left: '36%',
               animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
             }}
           />
 
-          <div
+       <div
             className="absolute left-0"
             style={{
               backgroundImage: 'url(/images/cube-in-left-medium.png)',
@@ -155,7 +151,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '130vw',
               height: '130vh',
-              top: `calc(0% + ${offset}px)`,
+              top: `calc(-30% + ${offset}px)`, // Moved up further
               left: '-5%',
             }}
           />
@@ -168,31 +164,34 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '130vw',
               height: '130vh',
-              top: `calc(0% + ${offset}px)`,
+              top: `calc(-30% + ${offset}px)`, // Moved up further
               left: '36%',
               animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
             }}
           />
           
-          <div style={{ marginTop: '-30px' }}>
-            {isDarkTheme ? (
-              <Image 
-                alt='dark_mode'
-                src='/images/logos/f4d-black.gif'
-                height={450}
-                width={450}
-              />
-            ) : (
-              <Image 
-                alt='dark_mode'
-                src='/images/logos/f4d-white.gif'
-                height={600}
-                width={600}
-              />
-            )}
-          </div>
+  
+<div style={{ marginTop: '-30px' }}> {/* Ajustez la valeur selon vos besoins */}
+  {/* Dynamic theme-based image */}
+  {isDarkTheme ? (
+    <Image 
+      alt='dark_mode'
+      src='/images/logos/f4d-black.gif'
+      height={450}
+      width={450}
+    />
+  ) : (
+    <Image 
+      alt='dark_mode'
+      src='/images/logos/f4d-white.gif'
+      height={600}
+      width={600}
+    />
+  )}
+</div>
 
-          <div className='flex flex-col space-y-2 items-center mb-5 mt-5 text-4xl md:text-6xl'>
+
+          <div className='flex flex-col space-y-2 items-center mb-5 mt-5 text-4xl md:text-6xl'> {/* Adjusted font size for mobile */}
             <div className='flex flex-row w-full'>
               <div className='flex justify-start'></div>
               <div className='flex flex-col items-center w-full min-w-[300px] md:min-w-[800px] ml-[18px]'>
@@ -250,8 +249,8 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             className={`flex items-center pl-2 py-2 px-3 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
           >
             Demander une démo
-            <div className='bg-white rounded-full ml-2 transform -rotate-45'>
-              <IconArrow />
+            <div className='bg-white rounded-full ml-2 transform -rotate-45'> {/* Inclinaison dans le sens contraire */}
+              <IconArrow /> {/* Adjust icon size */}
             </div>
           </button>
         </div>

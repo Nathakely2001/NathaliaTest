@@ -15,6 +15,7 @@ const Home = () => {
           : "bg-white text-black"
       } min-h-screen`}
     >
+      
       <Navbar />
       {/* Passer isDarkTheme à HeroSection */}
       <HeroSection isDarkTheme={isDarkTheme} />
