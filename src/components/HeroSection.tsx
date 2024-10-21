@@ -5,7 +5,10 @@ import IconArrow from './icons/IconArrow';
 const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   const [offset, setOffset] = useState(0);
   const [direction, setDirection] = useState(1); 
-
+  const handleMouseOver = () => {
+    console.log('Mouse is over the button!');
+    // You can add any additional actions here
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       setOffset((prev) => {
@@ -193,7 +196,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             }}
           />
           
-          <div style={{ marginTop: '-400px' }}>
+          <div style={{ marginTop: '-300px' }}>
             {isDarkTheme ? (
               <Image 
                 alt='dark_mode'
@@ -266,13 +269,16 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           </p>
 
           <button 
-            className={`flex items-center pl-2 py-2 px-3 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
-          >
-            Demander une démo
-            <div className='bg-white rounded-full ml-2 transform -rotate-45'>
-              <IconArrow />
-            </div>
-          </button>
+        onMouseOver={handleMouseOver} // Add the onMouseOver event
+        className={`flex items-center pl-2 py-2 px-3 text-sm tracking-wide transition-all duration-300 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"} 
+        hover:bg-blue-600 hover:scale-105 hover:shadow-lg`}
+      >
+        Demander une démo
+        <div className='bg-white rounded-full ml-2 transform -rotate-45'>
+          <IconArrow />
+        </div>
+      </button>
+
         </div>
       </div>
     </>
