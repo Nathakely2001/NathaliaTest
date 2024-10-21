@@ -89,6 +89,23 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
       display: none;
     }
   }
+
+  @keyframes rotate-border {
+  0% {
+    border-color: blue; /* Couleur initiale */
+  }
+  50% {
+    border-color: red; /* Couleur à mi-chemin */
+  }
+  100% {
+    border-color: blue; /* Retour à la couleur initiale */
+  }
+}
+
+.rotate-border {
+  animation: rotate-border 2s linear infinite; /* Durée et type d'animation */
+}
+
 `}</style>
 
 
@@ -179,43 +196,44 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
 
             <div className='flex space-x-4'>
-              <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white transition-colors duration-200 bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto'>
-                <div className='flex items-center'>
-                  {isDarkTheme ? (
-                    <>
-                      <Image 
-                        alt='Strapi logo'
-                        src='/images/Strapi-logo-white.png'
-                        height={100}
-                        width={100}
-                      />
-                      &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
-                      <Image 
-                        alt='Next.js logo'
-                        src='/images/Next-JS-logo-white.png'
-                        height={100}
-                        width={100}
-                      />
-                    </>
-                  ) : (
-                    <>
-                      <Image 
-                        alt='Strapi logo'
-                        src='/images/Strapi-logo-black.png'
-                        height={100}
-                        width={100}
-                      />
-                      &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
-                      <Image 
-                        alt='Next.js logo'
-                        src='/images/Next-JS-logo-black.png'
-                        height={100}
-                        width={100}
-                      />
-                    </>
-                  )}
-                </div>
-              </button>
+            <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
+  <div className='flex items-center'>
+    {isDarkTheme ? (
+      <>
+        <Image 
+          alt='Strapi logo'
+          src='/images/Strapi-logo-white.png'
+          height={100}
+          width={100}
+        />
+        &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
+        <Image 
+          alt='Next.js logo'
+          src='/images/Next-JS-logo-white.png'
+          height={100}
+          width={100}
+        />
+      </>
+    ) : (
+      <>
+        <Image 
+          alt='Strapi logo'
+          src='/images/Strapi-logo-black.png'
+          height={100}
+          width={100}
+        />
+        &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
+        <Image 
+          alt='Next.js logo'
+          src='/images/Next-JS-logo-black.png'
+          height={100}
+          width={100}
+        />
+      </>
+    )}
+  </div>
+</button>
+
             </div>
           </div>
 
