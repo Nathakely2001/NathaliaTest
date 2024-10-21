@@ -34,7 +34,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         className='flex w-full h-full'
         style={{
           width: '100vw',  
-          height: '150vh',
+          height: '135vh',
           position: 'relative',
         }}
       >
@@ -55,7 +55,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             }}
           />
           <div
-            className="absolute left-10"
+            className="absolute  hide-on-mobile left-10 "
             style={{
               backgroundImage: 'url(/images/cube-in-right-medium.png)',
               backgroundSize: 'contain',
