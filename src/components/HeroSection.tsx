@@ -138,12 +138,18 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     transform: scale(1); /* Returns to original size */
   }
 }
+  @media (max-width: 768px) { /* This is a typical breakpoint for mobile devices */
+  .hide-on-mobile {
+    display: none; /* Hides the element on screens smaller than 768px */
+  }
+}
+
 
 `}
 </style>
 
 <div
-  className='absolute'
+  className='absolute hide-on-mobile'
   style={{
     backgroundImage: 'url(/images/cube-in-right-medium.png)',
     backgroundSize: 'contain',
@@ -157,7 +163,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
 />
 
 <div
-  className='absolute'
+  className='absolute hide-on-mobile'
   style={{
     backgroundImage: 'url(/images/cube-in-right-large.png)',
     backgroundSize: 'contain',
@@ -171,7 +177,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
 />
 
 <div
-  className='absolute'
+  className='absolute hide-on-mobile'
   style={{
     backgroundImage: 'url(/images/cube-in-left-large.png)',
     backgroundSize: 'contain',
@@ -183,6 +189,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     left: '67%',
   }}
 />
+
 
           {/* Afficher l'image en fonction du thème */}
           {isDarkTheme ? (
