@@ -4,14 +4,23 @@ import IconArrow from './icons/IconArrow';
 
 const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   const [offset, setOffset] = useState(0);
-  const [direction, setDirection] = useState(1); 
+  const [direction, setDirection] = useState(1);
   const [topValue, setTopValue] = useState(`calc(35% + ${offset}px)`);
-  const [leftValue, setLeftValue] = useState('0'); 
+  const [leftValue, setLeftValue] = useState('0');
+
+  // Typing effect state
+  const text1 = 'Solutions de développement';
+  const text2 = 'rapides et flexibles avec';
+  const [displayedText1, setDisplayedText1] = useState('');
+  const [displayedText2, setDisplayedText2] = useState('');
+  const [index1, setIndex1] = useState(0);
+  const [index2, setIndex2] = useState(0);
+
   const handleMouseOver = () => {
     console.log('Mouse is over the button!');
     // You can add any additional actions here
   };
-  
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 640) {
@@ -26,10 +35,10 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     };
     // Set initial top value based on screen size
     handleResize();
-  
+
     // Add resize event listener
     window.addEventListener('resize', handleResize);
-  
+
     // Animation interval
     const interval = setInterval(() => {
       setOffset((prev) => {
@@ -45,14 +54,40 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         return newOffset;
       });
     }, 50);
-  
+
     // Cleanup both interval and event listener on unmount
     return () => {
       clearInterval(interval);
       window.removeEventListener('resize', handleResize);
     };
   }, [direction, offset]); // Add offset as a dependency to update the top value
-  
+
+  useEffect(() => {
+    const typingInterval1 = setInterval(() => {
+      if (index1 < text1.length) {
+        setDisplayedText1((prev) => prev + text1.charAt(index1));
+        setIndex1((prev) => prev + 1);
+      } else {
+        clearInterval(typingInterval1);
+      }
+    }, 100); // Adjust the typing speed by changing the interval
+
+    return () => clearInterval(typingInterval1); // Cleanup on unmount
+  }, [index1]);
+
+  useEffect(() => {
+    const typingInterval2 = setInterval(() => {
+      if (index2 < text2.length) {
+        setDisplayedText2((prev) => prev + text2.charAt(index2));
+        setIndex2((prev) => prev + 1);
+      } else {
+        clearInterval(typingInterval2);
+      }
+    }, 100); // Adjust the typing speed by changing the interval
+
+    return () => clearInterval(typingInterval2); // Cleanup on unmount
+  }, [index2]);
+
   return (
     <>
       <div 
@@ -64,23 +99,23 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         }}
       >
         <div className='relative py-5 z-10 flex flex-col items-center justify-center mt-0 w-full h-full'>
-        <div
-      className="absolute left-10"
-      style={{
-        backgroundImage: 'url(/images/cube-in-left-large.png)',
-        backgroundSize: 'contain',
-        backgroundRepeat: 'no-repeat',
-        width: '40vw',
-        height: '40vh',
-        top: topValue, // Use the dynamic top value here
-        left: '0',
-        animation: 'rotateLeft 5s linear infinite alternate, pause 5s linear infinite alternate 5s',
-        backgroundColor: 'transparent',
-        opacity: 1,
-      }}
-    />
           <div
-            className="absolute  hide-on-mobile left-10 "
+            className="absolute left-10"
+            style={{
+              backgroundImage: 'url(/images/cube-in-left-large.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '40vw',
+              height: '40vh',
+              top: topValue, // Use the dynamic top value here
+              left: '0',
+              animation: 'rotateLeft 5s linear infinite alternate, pause 5s linear infinite alternate 5s',
+              backgroundColor: 'transparent',
+              opacity: 1,
+            }}
+          />
+          <div
+            className="absolute hide-on-mobile left-10"
             style={{
               backgroundImage: 'url(/images/cube-in-right-medium.png)',
               backgroundSize: 'contain',
@@ -206,7 +241,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               left: '-5%',
             }}
           />
-          
+
           <div
             className='absolute hide-on-mobile'
             style={{
@@ -220,7 +255,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
             }}
           />
-          
+
           <div style={{ marginTop: '-100px' }}>
             {isDarkTheme ? (
               <Image 
@@ -243,72 +278,72 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             <div className='flex flex-row w-full'>
               <div className='flex justify-start'></div>
               <div className='flex flex-col items-center w-full min-w-[300px] md:min-w-[800px] ml-[18px]'>
-                <p className='text-center'><strong>Solutions</strong> de développement</p> 
-                <p className='text-center'><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
+                <p className='text-center'>
+                  <strong>{displayedText1}</strong>
+                </p>
+                <p className='text-center'>
+                  <strong>{displayedText2}</strong>
+                </p>
               </div>
             </div>
 
             <div className='flex space-x-4'>
-            <button 
-  className={`flex items-center px-5 sm:px-20 py-5 mb-5 mt-5 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 w-full sm:w-auto rotate-border 
-  shadow-lg hover:shadow-xl transition-shadow duration-300 ${isDarkTheme ? 'shadow-blue-500' : 'shadow-blue-500'}`}
->
-  <div className='flex items-center'>
-    {isDarkTheme ? (
-      <>
-        <Image 
-          alt='Strapi logo'
-          src='/images/Strapi-logo-white.png'
-          height={100}
-          width={100}
-        />
-        &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
-        <Image 
-          alt='Next.js logo'
-          src='/images/Next-JS-logo-white.png'
-          height={100}
-          width={100}
-        />
-      </>
-    ) : (
-      <>
-        <Image 
-          alt='Strapi logo'
-          src='/images/Strapi-logo-black.png'
-          height={100}
-          width={100}
-        />
-        &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
-        <Image 
-          alt='Next.js logo'
-          src='/images/Next-JS-logo-black.png'
-          height={100}
-          width={100}
-        />
-      </>
-    )}
-  </div>
-</button>
-
-
-
+              <button 
+                className={`flex items-center px-5 sm:px-20 py-5 mb-5 mt-5 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 w-full sm:w-auto rotate-border 
+                  shadow-lg hover:shadow-xl transition-shadow duration-300 ${isDarkTheme ? 'shadow-blue-500' : 'shadow-blue-500'}`}
+              >
+                <div className='flex items-center'>
+                  {isDarkTheme ? (
+                    <>
+                      <Image 
+                        alt='Strapi logo'
+                        src='/images/Strapi-logo-white.png'
+                        height={100}
+                        width={100}
+                      />
+                      &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
+                      <Image 
+                        alt='Next.js logo'
+                        src='/images/Next-JS-logo-white.png'
+                        height={100}
+                        width={100}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <Image 
+                        alt='Strapi logo'
+                        src='/images/Strapi-logo-black.png'
+                        height={100}
+                        width={100}
+                      />
+                      &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
+                      <Image 
+                        alt='Next.js logo'
+                        src='/images/Next-JS-logo-black.png'
+                        height={100}
+                        width={100}
+                      />
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
           </div>
           <p className='text-center text-2xl mx-8 my-5 max-w-lg md:max-w-[800px] text-lg md:text-base'>
-  Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
-</p>
+            Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
+          </p>
 
           <button 
-        onMouseOver={handleMouseOver} // Add the onMouseOver event
-        className={`flex items-center pl-2 py-2 px-3 text-sm tracking-wide transition-all duration-300 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"} 
-        hover:bg-blue-600 hover:scale-105 hover:shadow-lg`}
-      >
-        Demander une démo
-        <div className='bg-white rounded-full ml-2 transform -rotate-45'>
-          <IconArrow />
-        </div>
-      </button>
-
+            onMouseOver={handleMouseOver} // Add the onMouseOver event
+            className={`flex items-center pl-2 py-2 px-3 text-sm tracking-wide transition-all duration-300 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"} 
+            hover:bg-blue-600 hover:scale-105 hover:shadow-lg`}
+          >
+            Demander une démo
+            <div className='bg-white rounded-full ml-2 transform -rotate-45'>
+              <IconArrow />
+            </div>
+          </button>
         </div>
       </div>
     </>
