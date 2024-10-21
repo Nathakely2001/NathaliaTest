@@ -68,7 +68,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               width: '30vw',
               height: '30vh',
               top: `calc(30% + ${offset}px)`,
-              left: '75%',
+              left: '72%',
             }}
           />
           {/* Afficher l'image en fonction du thème */}
