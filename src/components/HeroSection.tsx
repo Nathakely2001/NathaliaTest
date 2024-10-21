@@ -267,10 +267,9 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
 
             </div>
           </div>
-
-          <p className='text-center text-2xl mx-8 mt=5 mb-10 md:mx-[230px] text-lg md:text-base'>
-            Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
-          </p>
+          <p className='text-center text-2xl mx-8 my-5 max-w-lg md:max-w-[800px] text-lg md:text-base'>
+  Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
+</p>
 
           <button 
         onMouseOver={handleMouseOver} // Add the onMouseOver event
