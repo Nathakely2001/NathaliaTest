@@ -165,7 +165,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               height: '50vh',
               top: `calc(-30% + ${offset}px)`,
               right: '30%',
-              animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
+              animation: 'rotateRight 5s linear infinite alternate 5s, pause 5s linear infinite alternate 10s',
             }}
           />
 
@@ -225,7 +225,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
 
             <div className='flex space-x-4'>
             <button 
-  className={`flex items-center px-20 py-5 mb-5 mt-5 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border 
+  className={`flex items-center px-5 sm:px-20 py-5 mb-5 mt-5 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 w-full sm:w-auto rotate-border 
   shadow-lg hover:shadow-xl transition-shadow duration-300 ${isDarkTheme ? 'shadow-blue-500' : 'shadow-blue-500'}`}
 >
   <div className='flex items-center'>
@@ -264,6 +264,8 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     )}
   </div>
 </button>
+
+
 
             </div>
           </div>
