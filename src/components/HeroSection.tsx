@@ -60,7 +60,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     }
   }
 
-  @keyframes moveDiagonally {
+  @keyframes moveDiagonally{
     0% {
       transform: translate(0, 0);
     }
@@ -78,6 +78,17 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     }
     50% {
       transform: translate(10px, 50px); /* Mouvement en diagonale */
+    }
+    100% {
+      transform: translate(0, 0); /* Retour à la position initiale */
+    }
+  }
+      @keyframes moveDiagonally2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(10px, 60px); /* Mouvement en diagonale */
     }
     100% {
       transform: translate(0, 0); /* Retour à la position initiale */
@@ -136,8 +147,8 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               width: '15vw',
               height: '15vh',
               top: `calc(30% + ${offset}px)`,
-              left: '67%',
-              animation: 'moveDiagonally1 5s ease-in-out infinite',
+              left: '64%',
+              animation: 'moveDiagonally1 3s ease-in-out infinite',
             }}
           />
 
@@ -151,7 +162,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               height: '60vh',
               top: `calc(10% + ${offset}px)`,
               left: '58%',
-              animation: 'moveDiagonally3 15s ease-in-out infinite, shrink 5s ease-in-out infinite',
+              animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
             }}
           />
 
@@ -164,7 +175,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               width: '25vw',
               height: '25vh',
               top: `calc(10% + ${offset}px)`,
-              animation: 'moveDiagonally2 10s ease-in-out infinite',
+              animation: 'moveDiagonally2 2s ease-in-out infinite',
               left: '67%',
             }}
           />
@@ -196,7 +207,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
 
             <div className='flex space-x-4'>
-            <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
+           <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
   <div className='flex items-center'>
     {isDarkTheme ? (
       <>
@@ -233,6 +244,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     )}
   </div>
 </button>
+
 
             </div>
           </div>
