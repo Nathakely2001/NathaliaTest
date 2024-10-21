@@ -34,30 +34,47 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5'
       
         >
-                 <div
-            className='absolute left-0'
-            style={{
-              backgroundImage: 'url(/images/cube-in-left-medium.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '40vw',
-              height: '60vh',
-              top: `calc(0% + ${offset}px)`,
-              left: '2%',
-            }}
-          />
-                <div
-            className='absolute left-0'
-            style={{
-              backgroundImage: 'url(/images/cube-in-left-medium.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '20vw',
-              height: '40vh',
-              top: `calc(48% + ${offset}px)`,
-              left: '6%',
-            }}
-          />
+   <div
+  className="absolute left-10"
+  style={{
+    backgroundImage: 'url(/images/cube-in-left-large.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '30vw',
+    height: '30vh',
+    top: `calc(30% + ${offset}px)`,
+    left: '2%',
+    animation: 'rotate 5s linear infinite',
+  }}
+/>
+
+<div
+  className="absolute left-0"
+  style={{
+    backgroundImage: 'url(/images/cube-in-left-medium.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '20vw',
+    height: '40vh',
+    top: `calc(30% + ${offset}px)`,
+    left: '2%',
+    animation: 'rotate 5s linear infinite',
+  }}
+/>
+
+<style>
+{`
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`}
+</style>
+
           {/* Image à droite */}
           <div
             className='absolute'
@@ -69,7 +86,26 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               height: '30vh',
               top: `calc(30% + ${offset}px)`,
               left: '72%',
+          
             }}
+            
+            
+          />
+                 {/* Image à droite */}
+                 <div
+            className='absolute'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-small.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '15vw',
+              height: '15vh',
+              top: `calc(50% + ${offset}px)`,
+              left: '72%',
+            
+            }}
+            
+            
           />
           {/* Afficher l'image en fonction du thème */}
           {isDarkTheme ? (
