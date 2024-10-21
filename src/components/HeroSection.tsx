@@ -99,7 +99,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
       transform: translate(0, 0);
     }
     50% {
-      transform: translate(20px, 60px); /* Mouvement en diagonale */
+      transform: translate(10px, 50px); /* Mouvement en diagonale */
     }
     100% {
       transform: translate(0, 0); /* Retour à la position initiale */
@@ -110,7 +110,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
       transform: translate(0, 0);
     }
     50% {
-      transform: translate(10px, 60px); /* Mouvement en diagonale */
+      transform: translate(40px, 10px); /* Mouvement en diagonale */
     }
     100% {
       transform: translate(0, 0); /* Retour à la position initiale */
@@ -121,7 +121,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
       transform: translate(0, 0);
     }
     50% {
-      transform: translate(10px, 20px); /* Mouvement en diagonale */
+      transform: translate(50px, 20px); /* Mouvement en diagonale */
     }
     100% {
       transform: translate(0, 0); /* Retour à la position initiale */
