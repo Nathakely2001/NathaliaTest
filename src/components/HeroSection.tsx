@@ -35,6 +35,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           position: 'relative', // Positioning for absolute elements
         }}
       >
+        
         <div className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5 w-full h-full'>
           <div
             className="absolute left-10"
@@ -49,6 +50,47 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               animation: 'rotate 5s linear infinite',
             }}
           />
+    <style jsx>{`
+  @keyframes rotate {
+    0% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(-50deg);
+    }
+  }
+
+  @keyframes moveDiagonally {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(50px, -50px); /* Mouvement en diagonale */
+    }
+    100% {
+      transform: translate(0, 0); /* Retour à la position initiale */
+    }
+  }
+
+  @keyframes moveDiagonally1 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(10px, 50px); /* Mouvement en diagonale */
+    }
+    100% {
+      transform: translate(0, 0); /* Retour à la position initiale */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hide-on-mobile {
+      display: none;
+    }
+  }
+`}</style>
+
 
           <div
             className="absolute left-0"
@@ -63,6 +105,10 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               animation: 'rotate 5s linear infinite',
             }}
           />
+
+
+
+
 
           <div
             className='absolute hide-on-mobile'
