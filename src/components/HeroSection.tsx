@@ -40,9 +40,9 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     backgroundImage: 'url(/images/cube-in-left-large.png)',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
-    width: '30vw',
-    height: '30vh',
-    top: `calc(30% + ${offset}px)`,
+    width: '40vw',
+    height: '40vh',
+    top: `calc(10% + ${offset}px)`,
     left: '2%',
     animation: 'rotate 5s linear infinite',
   }}
@@ -137,10 +137,10 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     backgroundImage: 'url(/images/cube-in-right-medium.png)',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
-    width: '20vw',
-    height: '20vh',
+    width: '15vw',
+    height: '15vh',
     top: `calc(30% + ${offset}px)`,
-    left: '72%',
+    left: '75%',
     animation: 'moveDiagonally1 5s ease-in-out infinite',
   }}
 />
@@ -151,9 +151,9 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     backgroundImage: 'url(/images/cube-in-right-large.png)',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
-    width: '35vw',
-    height: '35vh',
-    top: `calc(36% + ${offset}px)`,
+    width: '60vw',
+    height: '60vh',
+    top: `calc(10% + ${offset}px)`,
     left: '65%',
     animation: 'moveDiagonally3 10s ease-in-out infinite',
 
@@ -167,11 +167,11 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-left-large.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '10vw',
-              height: '10vh',
-              top: `calc(50% + ${offset}px)`,
+              width: '25vw',
+              height: '25vh',
+              top: `calc(10% + ${offset}px)`,
               animation: 'moveDiagonally2 5s ease-in-out infinite',
-              left: '70%',
+              left: '80%',
     
             }}
             
