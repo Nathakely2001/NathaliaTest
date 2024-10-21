@@ -95,7 +95,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     border-color: blue; /* Couleur initiale */
   }
   50% {
-    border-color: purple; /* Couleur à mi-chemin */
+    border-color: p; /* Couleur à mi-chemin */
   }
   100% {
     border-color: blue; /* Retour à la couleur initiale */
@@ -242,13 +242,14 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           </p>
 
           <button 
-            className={`flex items-center pl-2 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
-          >
-            Demander une démo
-            <div className='bg-white rounded-full ml-2'>
-              <IconArrow />
-            </div>
-          </button>
+  className={`flex items-center pl-2 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
+>
+  Demander une démo
+  <div className='bg-white rounded-full ml-2 transform -rotate-45'> {/* Inclinaison dans le sens contraire */}
+    <IconArrow />
+  </div>
+</button>
+
         </div>
       </div>
     </>
