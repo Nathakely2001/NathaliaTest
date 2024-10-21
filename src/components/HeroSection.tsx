@@ -4,7 +4,7 @@ import IconArrow from './icons/IconArrow';
 
 const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   const [offset, setOffset] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 for down, -1 for up
+  const [direction, setDirection] = useState(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -12,30 +12,29 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         const newOffset = prev + direction;
         if (newOffset >= 20) {
           setDirection(-1);
-          return 20; // Upper limit
+          return 20;
         }
         if (newOffset <= 0) {
           setDirection(1);
-          return 0; // Lower limit
+          return 0;
         }
         return newOffset;
       });
-    }, 50); // Adjust the duration for speed control
+    }, 50);
 
-    return () => clearInterval(interval); // Clean up the interval on component unmount
+    return () => clearInterval(interval);
   }, [direction]);
 
   return (
     <>
       <div 
-        className='flex w-full h-full' // Full width and height
+        className='flex w-full h-full'
         style={{
-          width: '100vw',  // 100% of viewport width
-          height: '100vh', // 100% of viewport height
-          position: 'relative', // Positioning for absolute elements
+          width: '100vw',
+          height: '100vh',
+          position: 'relative',
         }}
       >
-        
         <div className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5 w-full h-full'>
           <div
             className="absolute left-10"
@@ -50,75 +49,74 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               animation: 'rotate 5s linear infinite',
             }}
           />
-    <style jsx>{`
-  @keyframes rotate {
-    0% {
-      transform: rotate(10deg);
-    }
-    100% {
-      transform: rotate(-50deg);
-    }
-  }
+          <style jsx>{`
+            @keyframes rotate {
+              0% {
+                transform: rotate(10deg);
+              }
+              100% {
+                transform: rotate(-50deg);
+              }
+            }
 
-  @keyframes moveDiagonally{
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(50px, -50px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
+            @keyframes moveDiagonally {
+              0% {
+                transform: translate(0, 0);
+              }
+              50% {
+                transform: translate(50px, -50px);
+              }
+              100% {
+                transform: translate(0, 0);
+              }
+            }
 
-  @keyframes moveDiagonally1 {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(10px, 50px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
-      @keyframes moveDiagonally2 {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(10px, 60px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
+            @keyframes moveDiagonally1 {
+              0% {
+                transform: translate(0, 0);
+              }
+              50% {
+                transform: translate(10px, 50px);
+              }
+              100% {
+                transform: translate(0, 0);
+              }
+            }
 
-  @media (max-width: 768px) {
-    .hide-on-mobile {
-      display: none;
-    }
-  }
+            @keyframes moveDiagonally2 {
+              0% {
+                transform: translate(0, 0);
+              }
+              50% {
+                transform: translate(10px, 60px);
+              }
+              100% {
+                transform: translate(0, 0);
+              }
+            }
 
-  @keyframes rotate-border {
-  0% {
-    border-color: blue; /* Couleur initiale */
-  }
-  50% {
-    border-color: p; /* Couleur à mi-chemin */
-  }
-  100% {
-    border-color: blue; /* Retour à la couleur initiale */
-  }
-}
+            @media (max-width: 768px) {
+              .hide-on-mobile {
+                display: none;
+              }
+            }
 
-.rotate-border {
-  animation: rotate-border 2s linear infinite; /* Durée et type d'animation */
-}
+            @keyframes rotate-border {
+              0% {
+                border-color: blue;
+              }
+              50% {
+                border-color: p;
+              }
+              100% {
+                border-color: blue;
+              }
+            }
 
-`}</style>
-
+            .rotate-border {
+              animation: rotate-border 2s linear infinite;
+            }
+          `}</style>
 
           <div
             className="absolute left-0"
@@ -133,10 +131,6 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               animation: 'rotate 5s linear infinite',
             }}
           />
-
-
-
-
 
           <div
             className='absolute hide-on-mobile'
@@ -180,7 +174,6 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             }}
           />
 
-          {/* Dynamic theme-based image */}
           {isDarkTheme ? (
             <Image 
               alt='dark_mode'
@@ -207,45 +200,43 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
 
             <div className='flex space-x-4'>
-           <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
-  <div className='flex items-center'>
-    {isDarkTheme ? (
-      <>
-        <Image 
-          alt='Strapi logo'
-          src='/images/Strapi-logo-white.png'
-          height={100}
-          width={100}
-        />
-        &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
-        <Image 
-          alt='Next.js logo'
-          src='/images/Next-JS-logo-white.png'
-          height={100}
-          width={100}
-        />
-      </>
-    ) : (
-      <>
-        <Image 
-          alt='Strapi logo'
-          src='/images/Strapi-logo-black.png'
-          height={100}
-          width={100}
-        />
-        &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
-        <Image 
-          alt='Next.js logo'
-          src='/images/Next-JS-logo-black.png'
-          height={100}
-          width={100}
-        />
-      </>
-    )}
-  </div>
-</button>
-
-
+              <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
+                <div className='flex items-center'>
+                  {isDarkTheme ? (
+                    <>
+                      <Image 
+                        alt='Strapi logo'
+                        src='/images/Strapi-logo-white.png'
+                        height={100}
+                        width={100}
+                      />
+                      &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
+                      <Image 
+                        alt='Next.js logo'
+                        src='/images/Next-JS-logo-white.png'
+                        height={100}
+                        width={100}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <Image 
+                        alt='Strapi logo'
+                        src='/images/Strapi-logo-black.png'
+                        height={100}
+                        width={100}
+                      />
+                      &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
+                      <Image 
+                        alt='Next.js logo'
+                        src='/images/Next-JS-logo-black.png'
+                        height={100}
+                        width={100}
+                      />
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
           </div>
 
@@ -254,14 +245,13 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           </p>
 
           <button 
-  className={`flex items-center pl-2 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
->
-  Demander une démo
-  <div className='bg-white rounded-full ml-2 transform -rotate-45'> {/* Inclinaison dans le sens contraire */}
-    <IconArrow />
-  </div>
-</button>
-
+            className={`flex items-center pl-2 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
+          >
+            Demander une démo
+            <div className='bg-white rounded-full ml-2 transform -rotate-45'>
+              <IconArrow />
+            </div>
+          </button>
         </div>
       </div>
     </>
