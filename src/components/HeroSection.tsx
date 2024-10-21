@@ -127,9 +127,20 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
       transform: translate(0, 0); /* Retour à la position initiale */
     }
   }
+    @keyframes shrink {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8); /* Shrinks at mid-point */
+  }
+  100% {
+    transform: scale(1); /* Returns to original size */
+  }
+}
+
 `}
 </style>
-
 
 <div
   className='absolute'
@@ -140,7 +151,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     width: '15vw',
     height: '15vh',
     top: `calc(30% + ${offset}px)`,
-    left: '75%',
+    left: '55%',
     animation: 'moveDiagonally1 5s ease-in-out infinite',
   }}
 />
@@ -154,29 +165,25 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     width: '60vw',
     height: '60vh',
     top: `calc(10% + ${offset}px)`,
-    left: '65%',
-    animation: 'moveDiagonally3 10s ease-in-out infinite',
-
+    left: '45%',
+    animation: 'moveDiagonally3 15s ease-in-out infinite, shrink 5s ease-in-out infinite', // Added the shrink animation
   }}
 />
-    
-                 {/* Image à droite */}
-                 <div
-            className='absolute'
-            style={{
-              backgroundImage: 'url(/images/cube-in-left-large.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '25vw',
-              height: '25vh',
-              top: `calc(10% + ${offset}px)`,
-              animation: 'moveDiagonally2 5s ease-in-out infinite',
-              left: '80%',
-    
-            }}
-            
-            
-          />
+
+<div
+  className='absolute'
+  style={{
+    backgroundImage: 'url(/images/cube-in-left-large.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '25vw',
+    height: '25vh',
+    top: `calc(10% + ${offset}px)`,
+    animation: 'moveDiagonally2 10s ease-in-out infinite',
+    left: '45%',
+  }}
+/>
+
           {/* Afficher l'image en fonction du thème */}
           {isDarkTheme ? (
             <Image 
