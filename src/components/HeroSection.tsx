@@ -46,7 +46,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               width: '40vw',
               height: '40vh',
               top: `calc(10% + ${offset}px)`,
-              left: '2%',
+              left: '10%',
               animation: 'rotate 5s linear infinite',
             }}
           />
@@ -101,7 +101,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               width: '20vw',
               height: '40vh',
               top: `calc(30% + ${offset}px)`,
-              left: '2%',
+              left: '10%',
               animation: 'rotate 5s linear infinite',
             }}
           />
