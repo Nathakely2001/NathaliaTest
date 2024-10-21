@@ -44,8 +44,8 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '40vw',
               height: '40vh',
-              top: `calc(0% + ${offset}px)`,
-              left: '10%',
+              top: `calc(35% + ${offset}px)`,
+              left: '0',
               animation: 'rotateLeft 5s linear infinite alternate, pause 5s linear infinite alternate 5s',
               backgroundColor: 'transparent',
               opacity: 1,
@@ -59,7 +59,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '30vw',
               height: '30vh',
-              top: `calc(10% + ${offset}px)`,
+              top: `calc(40% + ${offset}px)`,
               left: '68%',
               animation: 'rotateRight 5s linear infinite alternate 5s, pause 5s linear infinite alternate 10s',
               backgroundColor: 'transparent',
@@ -74,7 +74,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '15vw',
               height: '15vh',
-              top: `calc(10% + ${offset}px)`,
+              top: `calc(20% + ${offset}px)`,
               left: '64%',
               animation: 'rotateRight 5s linear infinite alternate 5s, pause 5s linear infinite alternate 10s',
               backgroundColor: 'transparent',
@@ -116,11 +116,30 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               }
             }
 
+            @keyframes mobileAnimation {
+              0% {
+                transform: translateY(0);
+              }
+              50% {
+                transform: translateY(-10px);
+              }
+              100% {
+                transform: translateY(0);
+              }
+            }
+
             @media (max-width: 768px) {
               .hide-on-mobile {
                 display: none;
               }
 
+              /* Adjust background position for mobile */
+              .background-mobile {
+                top: calc(50% + ${offset}px); /* Adjust as necessary for mobile */
+                animation: mobileAnimation 2s ease-in-out infinite; /* Mobile animation */
+              }
+
+              /* Other mobile-specific styles */
               .rotate-animation {
                 animation: rotateLeft 3s linear infinite alternate, pause 3s linear infinite alternate 3s;
               }
@@ -174,7 +193,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             }}
           />
           
-          <div style={{ marginTop: '-30px' }}>
+          <div style={{ marginTop: '-400px' }}>
             {isDarkTheme ? (
               <Image 
                 alt='dark_mode'
