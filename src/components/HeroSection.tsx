@@ -16,7 +16,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         }
         if (newOffset <= 0) {
           setDirection(1);
-          return 0; 
+          return 0; // Lower limit
         }
         return newOffset;
       });
@@ -31,7 +31,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         className='flex w-full h-full' // Full width and height
         style={{
           width: '100vw',  // 100% of viewport width
-          height: '100vh', // 100% of viewport height
+          height: '120vh', // 100% of viewport height
           position: 'relative', // Positioning for absolute elements
         }}
       >
@@ -47,7 +47,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               height: '40vh',
               top: `calc(10% + ${offset}px)`,
               left: '10%',
-              animation: 'rotate 5s linear infinite',
+              animation: 'rotate 2s linear infinite',
             }}
           />
     <style jsx>{`
@@ -126,11 +126,11 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-left-medium.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '20vw',
-              height: '40vh',
-              top: `calc(30% + ${offset}px)`,
-              left: '10%',
-              animation: 'rotate 5s linear infinite',
+              width: '130vw',
+              height: '130vh',
+              top: `calc(-35% + ${offset}px)`,
+              left: '-5%',
+             
             }}
           />
 
@@ -158,10 +158,10 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundImage: 'url(/images/cube-in-right-large.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '60vw',
-              height: '60vh',
-              top: `calc(10% + ${offset}px)`,
-              left: '58%',
+              width: '130vw',
+              height: '130vh',
+              top: `calc(-30% + ${offset}px)`,
+              left: '36%',
               animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
             }}
           />
@@ -197,17 +197,19 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             />
           )}
 
-          <div className='flex flex-col space-y-4 items-center text-3xl'>
-            <div className='flex flex-row w-full'>
-              <div className='flex justify-start'></div>
-              <div className='flex flex-col items-center w-full ml-8'>
-                <p><strong>Solutions</strong> de développement</p> 
-                <p><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
-              </div>
-            </div>
+  <div className='flex flex-col space-y-2 items-center text-6xl'>
+  <div className='flex flex-row w-full'>
+    <div className='flex justify-start'></div>
+    <div className='flex flex-col items-center w-full min-w-[800px] ml-[18px]'>
+      <p><strong>Solutions</strong> de développement</p> 
+      <p><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
+    </div>
+  </div>
+
+
 
             <div className='flex space-x-4'>
-           <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
+           <button className='flex items-center px-5 py-5 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
   <div className='flex items-center'>
     {isDarkTheme ? (
       <>
@@ -248,13 +250,13 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
 
             </div>
           </div>
+          <p className='text-center mx-[230px]'>
+  Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
+</p>
 
-          <p className='text-center'>
-            Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
-          </p>
 
           <button 
-  className={`flex items-center pl-2 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
+  className={`flex items-center pl-2 py-2 px-3 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
 >
   Demander une démo
   <div className='bg-white rounded-full ml-2 transform -rotate-45'> {/* Inclinaison dans le sens contraire */}
