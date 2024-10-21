@@ -69,28 +69,53 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
       transform: rotate(0deg);
     }
     100% {
-      transform: rotate(300deg);
+      transform: rotate(100deg);
+    }
+  }
+
+   @keyframes moveUpAndDown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px); /* Change cette valeur pour contrôler la hauteur */
+    }
+    100% {
+      transform: translateY(0);
     }
   }
 `}
 </style>
 
+
           {/* Image à droite */}
           <div
-            className='absolute'
-            style={{
-              backgroundImage: 'url(/images/cube-in-right-medium.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '30vw',
-              height: '30vh',
-              top: `calc(30% + ${offset}px)`,
-              left: '72%',
-              animation: 'rotate 5s linear infinite',
-            }}
-            
-            
-          />
+  className='absolute'
+  style={{
+    backgroundImage: 'url(/images/cube-in-right-medium.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '20vw',
+    height: '20vh',
+    top: `calc(30% + ${offset}px)`,
+    left: '72%',
+    animation: 'moveUpAndDown 5s ease-in-out infinite',
+  }}
+/>
+<div
+  className='absolute'
+  style={{
+    backgroundImage: 'url(/images/cube-in-right-large.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    width: '35vw',
+    height: '35vh',
+    top: `calc(36% + ${offset}px)`,
+    left: '65%',
+    animation: 'moveUpAndDown 5s ease-in-out infinite',
+  }}
+/>
+    
                  {/* Image à droite */}
                  <div
             className='absolute'
@@ -102,6 +127,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               height: '15vh',
               top: `calc(50% + ${offset}px)`,
               left: '72%',
+              animation: 'rotate 5s linear infinite',
             
             }}
             
