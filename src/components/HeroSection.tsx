@@ -69,7 +69,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
       transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+      transform: rotate(300deg);
     }
   }
 `}
@@ -86,7 +86,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               height: '30vh',
               top: `calc(30% + ${offset}px)`,
               left: '72%',
-          
+              animation: 'rotate 5s linear infinite',
             }}
             
             
