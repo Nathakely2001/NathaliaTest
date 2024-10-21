@@ -73,23 +73,35 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     }
   }
 
-   @keyframes moveUpAndDown {
+
+  @keyframes moveDiagonally {
     0% {
-      transform: translateY(0);
+      transform: translate(0, 0);
     }
     50% {
-      transform: translateY(-20px); /* Change cette valeur pour contrôler la hauteur */
+      transform: translate(50px, -50px); /* Mouvement en diagonale */
     }
     100% {
-      transform: translateY(0);
+      transform: translate(0, 0); /* Retour à la position initiale */
+    }
+  }
+
+  @keyframes moveDiagonally1 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(10px, 60px); /* Mouvement en diagonale */
+    }
+    100% {
+      transform: translate(0, 0); /* Retour à la position initiale */
     }
   }
 `}
 </style>
 
 
-          {/* Image à droite */}
-          <div
+<div
   className='absolute'
   style={{
     backgroundImage: 'url(/images/cube-in-right-medium.png)',
@@ -99,9 +111,10 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     height: '20vh',
     top: `calc(30% + ${offset}px)`,
     left: '72%',
-    animation: 'moveUpAndDown 5s ease-in-out infinite',
+    animation: 'moveDiagonally1 5s ease-in-out infinite',
   }}
 />
+
 <div
   className='absolute'
   style={{
@@ -112,7 +125,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     height: '35vh',
     top: `calc(36% + ${offset}px)`,
     left: '65%',
-    animation: 'moveUpAndDown 5s ease-in-out infinite',
+
   }}
 />
     
