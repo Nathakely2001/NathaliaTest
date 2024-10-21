@@ -31,12 +31,12 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         className='flex w-full h-full' // Full width and height
         style={{
           width: '100vw',  // 100% of viewport width
-          height: '140vh', // Adjusted height if necessary
+          height: '120vh', // Adjusted height if necessary
           position: 'relative', // Positioning for absolute elements
         }}
       >
         
-        <div className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5 w-full h-full'>
+        <div className='relative py-5 z-10 flex flex-col items-center justify-center mt-0 w-full h-full'>
           <div
             className="absolute left-10"
             style={{
@@ -45,7 +45,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '40vw',
               height: '40vh',
-              top: `calc(10% + ${offset}px)`,
+              top: `calc(-20% + ${offset}px)`, // Moved up further
               left: '10%',
               animation: 'rotate 2s linear infinite',
             }}
@@ -59,6 +59,10 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
                 transform: rotate(-50deg);
               }
             }
+              .margin-top-negative {
+  margin-top: -100px; /* Ajustez la valeur selon vos besoins */
+}
+
 
             @media (max-width: 768px) {
               .hide-on-mobile {
@@ -66,7 +70,8 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               }
             }
           `}</style>
-            <div
+          
+          <div
             className="absolute left-0"
             style={{
               backgroundImage: 'url(/images/cube-in-left-medium.png)',
@@ -74,12 +79,12 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '130vw',
               height: '130vh',
-              top:` calc(-20% + ${offset}px)`,
+              top: `calc(-30% + ${offset}px)`, // Moved up further
               left: '-5%',
-             
             }}
           />
-        <div
+          
+          <div
             className='absolute hide-on-mobile'
             style={{
               backgroundImage: 'url(/images/cube-in-right-large.png)',
@@ -87,11 +92,12 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '130vw',
               height: '130vh',
-              top: `calc(-20% + ${offset}px)`,
+              top: `calc(-30% + ${offset}px)`, // Moved up further
               left: '36%',
               animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
             }}
           />
+          
           <div
             className='absolute hide-on-mobile'
             style={{
@@ -100,30 +106,32 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '15vw',
               height: '15vh',
-              top: `calc(30% + ${offset}px)`,
+              top: `calc(10% + ${offset}px)`, // Moved up further
               left: '64%',
               animation: 'moveDiagonally1 3s ease-in-out infinite',
             }}
           />
+<div style={{ marginTop: '-30px' }}> {/* Ajustez la valeur selon vos besoins */}
+  {/* Dynamic theme-based image */}
+  {isDarkTheme ? (
+    <Image 
+      alt='dark_mode'
+      src='/images/logos/f4d-black.gif'
+      height={450}
+      width={450}
+    />
+  ) : (
+    <Image 
+      alt='dark_mode'
+      src='/images/logos/f4d-white.gif'
+      height={600}
+      width={600}
+    />
+  )}
+</div>
 
-          {/* Dynamic theme-based image */}
-          {isDarkTheme ? (
-            <Image 
-              alt='dark_mode'
-              src='/images/logos/f4d-black.gif'
-              height={450}
-              width={450}
-            />
-          ) : (
-            <Image 
-              alt='dark_mode'
-              src='/images/logos/f4d-white.gif'
-              height={600}
-              width={600}
-            />
-          )}
 
-          <div className='flex flex-col space-y-2 items-center text-4xl md:text-6xl'> {/* Adjusted font size for mobile */}
+          <div className='flex flex-col space-y-2 items-center mb-5 mt-5 text-4xl md:text-6xl'> {/* Adjusted font size for mobile */}
             <div className='flex flex-row w-full'>
               <div className='flex justify-start'></div>
               <div className='flex flex-col items-center w-full min-w-[300px] md:min-w-[800px] ml-[18px]'>
@@ -173,7 +181,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
           </div>
 
-          <p className='text-center mx-8 md:mx-[230px] text-lg md:text-base'>
+          <p className='text-center mx-8 mt=5 mb-10 md:mx-[230px] text-lg md:text-base'>
             Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
           </p>
 
