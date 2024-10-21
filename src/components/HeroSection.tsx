@@ -95,7 +95,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     border-color: blue; /* Couleur initiale */
   }
   50% {
-    border-color: red; /* Couleur à mi-chemin */
+    border-color: purple; /* Couleur à mi-chemin */
   }
   100% {
     border-color: blue; /* Retour à la couleur initiale */
