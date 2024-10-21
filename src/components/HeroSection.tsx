@@ -36,6 +36,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         }}
       >
         <div className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5 w-full h-full'>
+          {/* Background images with animations */}
           <div
             className="absolute left-10"
             style={{
@@ -49,6 +50,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               animation: 'rotate 5s linear infinite',
             }}
           />
+          
           <style jsx>{`
             @keyframes rotate {
               0% {
@@ -59,6 +61,20 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               }
             }
 
+            /* Animation for mobile */
+            @keyframes mobileMove {
+              0% {
+                transform: translate(0, 0);
+              }
+              50% {
+                transform: translate(20px, -20px);
+              }
+              100% {
+                transform: translate(0, 0);
+              }
+            }
+
+            /* Animation for desktop */
             @keyframes moveDiagonally {
               0% {
                 transform: translate(0, 0);
@@ -71,33 +87,13 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               }
             }
 
-            @keyframes moveDiagonally1 {
-              0% {
-                transform: translate(0, 0);
-              }
-              50% {
-                transform: translate(10px, 50px);
-              }
-              100% {
-                transform: translate(0, 0);
-              }
-            }
-
-            @keyframes moveDiagonally2 {
-              0% {
-                transform: translate(0, 0);
-              }
-              50% {
-                transform: translate(10px, 60px);
-              }
-              100% {
-                transform: translate(0, 0);
-              }
-            }
-
             @media (max-width: 768px) {
               .hide-on-mobile {
                 display: none;
+              }
+
+              .mobile-cube {
+                animation: mobileMove 3s ease-in-out infinite;
               }
             }
 
@@ -106,7 +102,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
                 border-color: blue;
               }
               50% {
-                border-color: p;
+                border-color: purple;
               }
               100% {
                 border-color: blue;
@@ -116,64 +112,39 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             .rotate-border {
               animation: rotate-border 2s linear infinite;
             }
+
           `}</style>
 
-          <div
-            className="absolute left-0"
-            style={{
-              backgroundImage: 'url(/images/cube-in-left-medium.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '20vw',
-              height: '40vh',
-              top: `calc(30% + ${offset}px)`,
-              left: '10%',
-              animation: 'rotate 5s linear infinite',
-            }}
-          />
-
+          {/* Additional cubes for desktop */}
           <div
             className='absolute hide-on-mobile'
             style={{
               backgroundImage: 'url(/images/cube-in-right-medium.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              width: '15vw',
-              height: '15vh',
+              width: '20vw',
+              height: '40vh',
               top: `calc(30% + ${offset}px)`,
-              left: '64%',
-              animation: 'moveDiagonally1 3s ease-in-out infinite',
+              left: '60%',
+              animation: 'moveDiagonally 3s ease-in-out infinite',
             }}
           />
 
+          {/* Additional cubes for mobile */}
           <div
-            className='absolute hide-on-mobile'
+            className='absolute mobile-cube'
             style={{
-              backgroundImage: 'url(/images/cube-in-right-large.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '60vw',
-              height: '60vh',
-              top: `calc(10% + ${offset}px)`,
-              left: '58%',
-              animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
-            }}
-          />
-
-          <div
-            className='absolute hide-on-mobile'
-            style={{
-              backgroundImage: 'url(/images/cube-in-left-large.png)',
+              backgroundImage: 'url(/images/cube-in-right-small.png)',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               width: '25vw',
               height: '25vh',
               top: `calc(10% + ${offset}px)`,
-              animation: 'moveDiagonally2 2s ease-in-out infinite',
               left: '67%',
             }}
           />
 
+          {/* Logo Image */}
           {isDarkTheme ? (
             <Image 
               alt='dark_mode'
@@ -190,6 +161,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             />
           )}
 
+          {/* Hero Section Text */}
           <div className='flex flex-col space-y-4 items-center text-3xl'>
             <div className='flex flex-row w-full'>
               <div className='flex justify-start'></div>
@@ -199,8 +171,9 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               </div>
             </div>
 
+            {/* Button and Logos */}
             <div className='flex space-x-4'>
-              <button className='flex items-center px-5 py-3 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
+              <button className='relative flex justify-center items-center gap-4 mt-8 px-16  md:px-20 py-3 md:py-6 border border-[#4960FF] rounded-md rotate-border z-[110]'>
                 <div className='flex items-center'>
                   {isDarkTheme ? (
                     <>
@@ -244,6 +217,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
           </p>
 
+          {/* Demo Request Button */}
           <button 
             className={`flex items-center pl-2 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
           >
