@@ -66,13 +66,21 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
 {`
   @keyframes rotate {
     0% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(-50deg);
+    }
+  }
+
+    @keyframes rotate1 {
+    0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(100deg);
     }
   }
-
 
   @keyframes moveDiagonally {
     0% {
@@ -91,7 +99,29 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
       transform: translate(0, 0);
     }
     50% {
+      transform: translate(20px, 60px); /* Mouvement en diagonale */
+    }
+    100% {
+      transform: translate(0, 0); /* Retour à la position initiale */
+    }
+  }
+     @keyframes moveDiagonally2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
       transform: translate(10px, 60px); /* Mouvement en diagonale */
+    }
+    100% {
+      transform: translate(0, 0); /* Retour à la position initiale */
+    }
+  }
+        @keyframes moveDiagonally3 {
+    0% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(10px, 20px); /* Mouvement en diagonale */
     }
     100% {
       transform: translate(0, 0); /* Retour à la position initiale */
@@ -125,7 +155,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     height: '35vh',
     top: `calc(36% + ${offset}px)`,
     left: '65%',
-    
+    animation: 'moveDiagonally3 10s ease-in-out infinite',
 
   }}
 />
@@ -140,7 +170,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               width: '10vw',
               height: '10vh',
               top: `calc(50% + ${offset}px)`,
-              animation: 'moveDiagonally1 5s ease-in-out infinite',
+              animation: 'moveDiagonally2 5s ease-in-out infinite',
               left: '70%',
     
             }}
@@ -218,7 +248,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
           </p>
 
           <button 
-            className={`flex items-center px-5 py-3 text-sm tracking-wide transition-colors duration-200 bg-blue-500 border border-blue-500 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
+            className={`flex items-center pl-2 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
           >
             Demander une démo
             <div className='bg-white rounded-full ml-2'>
