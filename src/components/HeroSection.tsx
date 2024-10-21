@@ -6,6 +6,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   const [offset, setOffset] = useState(0);
   const [direction, setDirection] = useState(1); 
   const [topValue, setTopValue] = useState(`calc(35% + ${offset}px)`);
+  const [leftValue, setLeftValue] = useState('0'); 
   const handleMouseOver = () => {
     console.log('Mouse is over the button!');
     // You can add any additional actions here
@@ -14,13 +15,15 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 640) {
-        setTopValue(`calc(10% + ${offset}px)`);
-        
+        // Adjust for mobile screens
+        setTopValue(`calc(20% + ${offset}px)`);
+        setLeftValue('15%'); // Adjust the left value for smaller screens
       } else {
+        // Adjust for larger screens
         setTopValue(`calc(35% + ${offset}px)`);
+        setLeftValue('0'); // Default left value for larger screens
       }
     };
-  
     // Set initial top value based on screen size
     handleResize();
   
@@ -218,7 +221,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             }}
           />
           
-          <div style={{ marginTop: '-300px' }}>
+          <div style={{ marginTop: '-100px' }}>
             {isDarkTheme ? (
               <Image 
                 alt='dark_mode'
