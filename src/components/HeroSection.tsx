@@ -5,11 +5,29 @@ import IconArrow from './icons/IconArrow';
 const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   const [offset, setOffset] = useState(0);
   const [direction, setDirection] = useState(1); 
+  const [topValue, setTopValue] = useState(`calc(35% + ${offset}px)`);
   const handleMouseOver = () => {
     console.log('Mouse is over the button!');
     // You can add any additional actions here
   };
+  
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 640) {
+        setTopValue(`calc(10% + ${offset}px)`);
+        
+      } else {
+        setTopValue(`calc(35% + ${offset}px)`);
+      }
+    };
+  
+    // Set initial top value based on screen size
+    handleResize();
+  
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+  
+    // Animation interval
     const interval = setInterval(() => {
       setOffset((prev) => {
         const newOffset = prev + direction;
@@ -23,11 +41,15 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         }
         return newOffset;
       });
-    }, 50); 
-
-    return () => clearInterval(interval); 
-  }, [direction]);
-
+    }, 50);
+  
+    // Cleanup both interval and event listener on unmount
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [direction, offset]); // Add offset as a dependency to update the top value
+  
   return (
     <>
       <div 
@@ -39,21 +61,21 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         }}
       >
         <div className='relative py-5 z-10 flex flex-col items-center justify-center mt-0 w-full h-full'>
-          <div
-            className="absolute left-10"
-            style={{
-              backgroundImage: 'url(/images/cube-in-left-large.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '40vw',
-              height: '40vh',
-              top: `calc(35% + ${offset}px)`,
-              left: '0',
-              animation: 'rotateLeft 5s linear infinite alternate, pause 5s linear infinite alternate 5s',
-              backgroundColor: 'transparent',
-              opacity: 1,
-            }}
-          />
+        <div
+      className="absolute left-10"
+      style={{
+        backgroundImage: 'url(/images/cube-in-left-large.png)',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        width: '40vw',
+        height: '40vh',
+        top: topValue, // Use the dynamic top value here
+        left: '0',
+        animation: 'rotateLeft 5s linear infinite alternate, pause 5s linear infinite alternate 5s',
+        backgroundColor: 'transparent',
+        opacity: 1,
+      }}
+    />
           <div
             className="absolute  hide-on-mobile left-10 "
             style={{
