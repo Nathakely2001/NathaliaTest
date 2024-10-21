@@ -224,7 +224,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
 
             <div className='flex space-x-4'>
-              <button className='flex items-center px-5 py-5 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
+              <button className='flex items-center px-20  py-5 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
                 <div className='flex items-center'>
                   {isDarkTheme ? (
                     <>
@@ -264,7 +264,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
           </div>
 
-          <p className='text-center mx-8 mt=5 mb-10 md:mx-[230px] text-lg md:text-base'>
+          <p className='text-center text-2xl mx-8 mt=5 mb-10 md:mx-[230px] text-lg md:text-base'>
             Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
           </p>
 
