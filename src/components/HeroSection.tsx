@@ -31,7 +31,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
         className='flex w-full h-full' // Full width and height
         style={{
           width: '100vw',  // 100% of viewport width
-          height: '120vh', // 100% of viewport height
+          height: '140vh', // Adjusted height if necessary
           position: 'relative', // Positioning for absolute elements
         }}
       >
@@ -50,77 +50,23 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               animation: 'rotate 2s linear infinite',
             }}
           />
-    <style jsx>{`
-  @keyframes rotate {
-    0% {
-      transform: rotate(10deg);
-    }
-    100% {
-      transform: rotate(-50deg);
-    }
-  }
+          <style jsx>{`
+            @keyframes rotate {
+              0% {
+                transform: rotate(10deg);
+              }
+              100% {
+                transform: rotate(-50deg);
+              }
+            }
 
-  @keyframes moveDiagonally{
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(50px, -50px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
-
-  @keyframes moveDiagonally1 {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(10px, 50px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
-      @keyframes moveDiagonally2 {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(10px, 60px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hide-on-mobile {
-      display: none;
-    }
-  }
-
-  @keyframes rotate-border {
-  0% {
-    border-color: blue; /* Couleur initiale */
-  }
-  50% {
-    border-color: p; /* Couleur à mi-chemin */
-  }
-  100% {
-    border-color: blue; /* Retour à la couleur initiale */
-  }
-}
-
-.rotate-border {
-  animation: rotate-border 2s linear infinite; /* Durée et type d'animation */
-}
-
-`}</style>
-
-
-          <div
+            @media (max-width: 768px) {
+              .hide-on-mobile {
+                display: none;
+              }
+            }
+          `}</style>
+            <div
             className="absolute left-0"
             style={{
               backgroundImage: 'url(/images/cube-in-left-medium.png)',
@@ -128,16 +74,24 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               backgroundRepeat: 'no-repeat',
               width: '130vw',
               height: '130vh',
-              top: `calc(-35% + ${offset}px)`,
+              top:` calc(-20% + ${offset}px)`,
               left: '-5%',
              
             }}
           />
-
-
-
-
-
+        <div
+            className='absolute hide-on-mobile'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-large.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '130vw',
+              height: '130vh',
+              top: `calc(-20% + ${offset}px)`,
+              left: '36%',
+              animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
+            }}
+          />
           <div
             className='absolute hide-on-mobile'
             style={{
@@ -149,34 +103,6 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               top: `calc(30% + ${offset}px)`,
               left: '64%',
               animation: 'moveDiagonally1 3s ease-in-out infinite',
-            }}
-          />
-
-          <div
-            className='absolute hide-on-mobile'
-            style={{
-              backgroundImage: 'url(/images/cube-in-right-large.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '130vw',
-              height: '130vh',
-              top: `calc(-30% + ${offset}px)`,
-              left: '36%',
-              animation: 'moveDiagonally3 2s ease-in-out infinite, shrink 5s ease-in-out infinite',
-            }}
-          />
-
-          <div
-            className='absolute hide-on-mobile'
-            style={{
-              backgroundImage: 'url(/images/cube-in-left-large.png)',
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              width: '25vw',
-              height: '25vh',
-              top: `calc(10% + ${offset}px)`,
-              animation: 'moveDiagonally2 2s ease-in-out infinite',
-              left: '67%',
             }}
           />
 
@@ -197,73 +123,68 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             />
           )}
 
-  <div className='flex flex-col space-y-2 items-center text-6xl'>
-  <div className='flex flex-row w-full'>
-    <div className='flex justify-start'></div>
-    <div className='flex flex-col items-center w-full min-w-[800px] ml-[18px]'>
-      <p><strong>Solutions</strong> de développement</p> 
-      <p><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
-    </div>
-  </div>
-
-
+          <div className='flex flex-col space-y-2 items-center text-4xl md:text-6xl'> {/* Adjusted font size for mobile */}
+            <div className='flex flex-row w-full'>
+              <div className='flex justify-start'></div>
+              <div className='flex flex-col items-center w-full min-w-[300px] md:min-w-[800px] ml-[18px]'>
+                <p className='text-center'><strong>Solutions</strong> de développement</p> 
+                <p className='text-center'><strong>rapides </strong>et <strong>flexibles</strong> avec</p>
+              </div>
+            </div>
 
             <div className='flex space-x-4'>
-           <button className='flex items-center px-5 py-5 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
-  <div className='flex items-center'>
-    {isDarkTheme ? (
-      <>
-        <Image 
-          alt='Strapi logo'
-          src='/images/Strapi-logo-white.png'
-          height={100}
-          width={100}
-        />
-        &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
-        <Image 
-          alt='Next.js logo'
-          src='/images/Next-JS-logo-white.png'
-          height={100}
-          width={100}
-        />
-      </>
-    ) : (
-      <>
-        <Image 
-          alt='Strapi logo'
-          src='/images/Strapi-logo-black.png'
-          height={100}
-          width={100}
-        />
-        &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
-        <Image 
-          alt='Next.js logo'
-          src='/images/Next-JS-logo-black.png'
-          height={100}
-          width={100}
-        />
-      </>
-    )}
-  </div>
-</button>
-
-
+              <button className='flex items-center px-5 py-5 text-sm tracking-wide text-white bg-none border border-blue-500 rounded-md shrink-0 sm:w-auto rotate-border'>
+                <div className='flex items-center'>
+                  {isDarkTheme ? (
+                    <>
+                      <Image 
+                        alt='Strapi logo'
+                        src='/images/Strapi-logo-white.png'
+                        height={100}
+                        width={100}
+                      />
+                      &nbsp;<span style={{ color: 'white' }}>&</span>&nbsp;
+                      <Image 
+                        alt='Next.js logo'
+                        src='/images/Next-JS-logo-white.png'
+                        height={100}
+                        width={100}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <Image 
+                        alt='Strapi logo'
+                        src='/images/Strapi-logo-black.png'
+                        height={100}
+                        width={100}
+                      />
+                      &nbsp;<span style={{ color: 'black' }}>&</span>&nbsp;
+                      <Image 
+                        alt='Next.js logo'
+                        src='/images/Next-JS-logo-black.png'
+                        height={100}
+                        width={100}
+                      />
+                    </>
+                  )}
+                </div>
+              </button>
             </div>
           </div>
-          <p className='text-center mx-[230px]'>
-  Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
-</p>
 
+          <p className='text-center mx-8 md:mx-[230px] text-lg md:text-base'>
+            Nous créons des applications web sur mesure, rapides et évolutives grâce à Strapi pour une gestion de contenu flexible et Next.js pour des performances optimales et un SEO renforcé.
+          </p>
 
           <button 
-  className={`flex items-center pl-2 py-2 px-3 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
->
-  Demander une démo
-  <div className='bg-white rounded-full ml-2 transform -rotate-45'> {/* Inclinaison dans le sens contraire */}
-    <IconArrow />
-  </div>
-</button>
-
+            className={`flex items-center pl-2 py-2 px-3 text-sm tracking-wide transition-colors duration-200 bg-blue-800 border border-blue-800 rounded-full shrink-0 sm:w-auto ${isDarkTheme ? "text-white" : "text-black"}`}
+          >
+            Demander une démo
+            <div className='bg-white rounded-full ml-2 transform -rotate-45'> {/* Inclinaison dans le sens contraire */}
+              <IconArrow /> {/* Adjust icon size */}
+            </div>
+          </button>
         </div>
       </div>
     </>
