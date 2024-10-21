@@ -4,194 +4,109 @@ import IconArrow from './icons/IconArrow';
 
 const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
   const [offset, setOffset] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 pour descendre, -1 pour monter
+  const [direction, setDirection] = useState(1); // 1 for down, -1 for up
 
   useEffect(() => {
     const interval = setInterval(() => {
       setOffset((prev) => {
         const newOffset = prev + direction;
-        // Change de direction si on atteint une certaine limite
         if (newOffset >= 20) {
           setDirection(-1);
-          return 20; // Limite supérieure
+          return 20; // Upper limit
         }
         if (newOffset <= 0) {
           setDirection(1);
-          return 0; // Limite inférieure
+          return 0; // Lower limit
         }
         return newOffset;
       });
-    }, 50); // Ajustez la durée pour contrôler la vitesse
+    }, 50); // Adjust the duration for speed control
 
-    return () => clearInterval(interval); // Nettoie l'intervalle à la désactivation du composant
+    return () => clearInterval(interval); // Clean up the interval on component unmount
   }, [direction]);
 
   return (
     <>
-      <div className='flex'>
-    
-        <div 
-          className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5'
-      
-        >
-   <div
-  className="absolute left-10"
-  style={{
-    backgroundImage: 'url(/images/cube-in-left-large.png)',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    width: '40vw',
-    height: '40vh',
-    top: `calc(10% + ${offset}px)`,
-    left: '2%',
-    animation: 'rotate 5s linear infinite',
-  }}
-/>
+      <div 
+        className='flex w-full h-full' // Full width and height
+        style={{
+          width: '100vw',  // 100% of viewport width
+          height: '100vh', // 100% of viewport height
+          position: 'relative', // Positioning for absolute elements
+        }}
+      >
+        <div className='relative z-10 flex flex-col items-center justify-center space-y-6 py-5 w-full h-full'>
+          <div
+            className="absolute left-10"
+            style={{
+              backgroundImage: 'url(/images/cube-in-left-large.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '40vw',
+              height: '40vh',
+              top: `calc(10% + ${offset}px)`,
+              left: '2%',
+              animation: 'rotate 5s linear infinite',
+            }}
+          />
 
-<div
-  className="absolute left-0"
-  style={{
-    backgroundImage: 'url(/images/cube-in-left-medium.png)',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    width: '20vw',
-    height: '40vh',
-    top: `calc(30% + ${offset}px)`,
-    left: '2%',
-    animation: 'rotate 5s linear infinite',
-  }}
-/>
+          <div
+            className="absolute left-0"
+            style={{
+              backgroundImage: 'url(/images/cube-in-left-medium.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '20vw',
+              height: '40vh',
+              top: `calc(30% + ${offset}px)`,
+              left: '2%',
+              animation: 'rotate 5s linear infinite',
+            }}
+          />
 
-<style>
-{`
-  @keyframes rotate {
-    0% {
-      transform: rotate(10deg);
-    }
-    100% {
-      transform: rotate(-50deg);
-    }
-  }
+          <div
+            className='absolute hide-on-mobile'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-medium.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '15vw',
+              height: '15vh',
+              top: `calc(30% + ${offset}px)`,
+              left: '67%',
+              animation: 'moveDiagonally1 5s ease-in-out infinite',
+            }}
+          />
 
-    @keyframes rotate1 {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(100deg);
-    }
-  }
+          <div
+            className='absolute hide-on-mobile'
+            style={{
+              backgroundImage: 'url(/images/cube-in-right-large.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '60vw',
+              height: '60vh',
+              top: `calc(10% + ${offset}px)`,
+              left: '58%',
+              animation: 'moveDiagonally3 15s ease-in-out infinite, shrink 5s ease-in-out infinite',
+            }}
+          />
 
-  @keyframes moveDiagonally {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(50px, -50px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
+          <div
+            className='absolute hide-on-mobile'
+            style={{
+              backgroundImage: 'url(/images/cube-in-left-large.png)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              width: '25vw',
+              height: '25vh',
+              top: `calc(10% + ${offset}px)`,
+              animation: 'moveDiagonally2 10s ease-in-out infinite',
+              left: '67%',
+            }}
+          />
 
-  @keyframes moveDiagonally1 {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(10px, 50px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
-     @keyframes moveDiagonally2 {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(40px, 10px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
-        @keyframes moveDiagonally3 {
-    0% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(50px, 20px); /* Mouvement en diagonale */
-    }
-    100% {
-      transform: translate(0, 0); /* Retour à la position initiale */
-    }
-  }
-    @keyframes shrink {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.8); /* Shrinks at mid-point */
-  }
-  100% {
-    transform: scale(1); /* Returns to original size */
-  }
-}
-  @media (max-width: 768px) { /* This is a typical breakpoint for mobile devices */
-  .hide-on-mobile {
-    display: none; /* Hides the element on screens smaller than 768px */
-  }
-}
-
-
-`}
-</style>
-
-<div
-  className='absolute hide-on-mobile'
-  style={{
-    backgroundImage: 'url(/images/cube-in-right-medium.png)',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    width: '15vw',
-    height: '15vh',
-    top: `calc(30% + ${offset}px)`,
-    left: '67%',
-    animation: 'moveDiagonally1 5s ease-in-out infinite',
-  }}
-/>
-
-<div
-  className='absolute hide-on-mobile'
-  style={{
-    backgroundImage: 'url(/images/cube-in-right-large.png)',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    width: '60vw',
-    height: '60vh',
-    top: `calc(10% + ${offset}px)`,
-    left: '58%',
-    animation: 'moveDiagonally3 15s ease-in-out infinite, shrink 5s ease-in-out infinite', // Added the shrink animation
-  }}
-/>
-
-<div
-  className='absolute hide-on-mobile'
-  style={{
-    backgroundImage: 'url(/images/cube-in-left-large.png)',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    width: '25vw',
-    height: '25vh',
-    top: `calc(10% + ${offset}px)`,
-    animation: 'moveDiagonally2 10s ease-in-out infinite',
-    left: '67%',
-  }}
-/>
-
-
-          {/* Afficher l'image en fonction du thème */}
+          {/* Dynamic theme-based image */}
           {isDarkTheme ? (
             <Image 
               alt='dark_mode'
@@ -207,6 +122,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
               width={600}
             />
           )}
+
           <div className='flex flex-col space-y-4 items-center text-3xl'>
             <div className='flex flex-row w-full'>
               <div className='flex justify-start'></div>
@@ -270,10 +186,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
             </div>
           </button>
         </div>
-
-   
-        </div>
-
+      </div>
     </>
   );
 };
