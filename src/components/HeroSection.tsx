@@ -151,7 +151,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     width: '15vw',
     height: '15vh',
     top: `calc(30% + ${offset}px)`,
-    left: '55%',
+    left: '67%',
     animation: 'moveDiagonally1 5s ease-in-out infinite',
   }}
 />
@@ -165,7 +165,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     width: '60vw',
     height: '60vh',
     top: `calc(10% + ${offset}px)`,
-    left: '45%',
+    left: '58%',
     animation: 'moveDiagonally3 15s ease-in-out infinite, shrink 5s ease-in-out infinite', // Added the shrink animation
   }}
 />
@@ -180,7 +180,7 @@ const HeroSection: React.FC<{ isDarkTheme: boolean }> = ({ isDarkTheme }) => {
     height: '25vh',
     top: `calc(10% + ${offset}px)`,
     animation: 'moveDiagonally2 10s ease-in-out infinite',
-    left: '45%',
+    left: '67%',
   }}
 />
 
